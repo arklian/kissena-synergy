@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Routes from './Routes.tsx'
+import Routes from './Routes'
 
 const kissenaRouter = createBrowserRouter(Routes)
 

@@ -10,7 +10,7 @@
       "@/*" : ["./src/*"],
       "@kissena/*" : ["./src/kissena/*"],
       "@admin/*" : ["./src/admin/*"]
-    }
-  },
-  "types": ["node"]
+    },
+    "types": ["node"]
+  }
 }

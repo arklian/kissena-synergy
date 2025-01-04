@@ -1,5 +1,5 @@
-import KissenaRoutes from "@kissena/Kissena.routes.tsx"
-import HomePage from "@kissena/pages/home/Home.page.tsx";
+import { KissenaRoutes } from "@kissena/Kissena.routes"
+import { HomePage } from "@kissena/pages/home/Home.page";
 
 const Routes = [
     // Base path for hosting the kissena website

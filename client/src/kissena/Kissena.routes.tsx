@@ -1,16 +1,14 @@
-import HomePage from "@kissena/pages/home/Home.page.tsx"
+import { HomePage } from "@kissena/pages/home/Home.page"
 
-const KissenaRoutes = [
+export const KissenaRoutes = [
     {
         index: true, 
         description: 'Home', 
         element: <HomePage/>
     },
     {
-        path: 'new_page',
-        description: 'New Page',
-        element: <></>
+        path: 'content',
+        description: 'some content',
+        element: <div>Content! Behold!</div>
     }
 ]
-
-export default KissenaRoutes;

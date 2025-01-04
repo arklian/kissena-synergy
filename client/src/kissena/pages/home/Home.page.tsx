@@ -1,5 +1,5 @@
-function HomePage() {
-    return <>Home!</>
-}
+import { Outlet } from "react-router-dom";
 
-export default HomePage
+export function HomePage() {
+    return <>Home! <Outlet /></>
+}
