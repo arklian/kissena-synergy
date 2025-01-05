@@ -7,8 +7,8 @@ export const KissenaRoutes = [
     element: <HomePage />,
   },
   {
-    path: 'content',
-    description: 'some content',
-    element: <div>Content! Behold!</div>,
+    path: 'placeholder',
+    description: 'placeholder for future content',
+    element: <div>A funny lil placeholder.</div>,
   },
 ]

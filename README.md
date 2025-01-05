@@ -1,18 +1,18 @@
 # Kissena Synergy Website
-A static React website for [Kissena Synergy](https://www.facebook.com/groups/610957329304796/)
+A website for [Kissena Synergy](https://www.facebook.com/groups/610957329304796/)
 
 ---
 ### Built Using
 Shoutout to the technologies / frameworks we're using:
+* TypeScript
 * React
 * Vite
-* TypeScript
 * Mantine
 
 ---
 
-### Getting Started
-#### Prerequisites
+## Getting Started
+### Prerequisites
 First things first, we'll need to setup `pnpm`, our package manager of choice.
 
 If you haven't already, install `pnpm`:
@@ -23,12 +23,13 @@ npm i -g pnpm # If you already have `npm` installed
 
 ---
 
+### Setting up the Frontend
 #### Installation
-Now let's install our dependencies & the app's modules itself.
+Now let's install the frontend's dependencies itself.
 
-1. Navigate to the `client` directory:
+1. Navigate to the `frontend` directory:
 ```bash
-cd client
+cd frontend
 ```
 
 2. Install all necessary dependencies:
@@ -36,9 +37,9 @@ cd client
 pnpm install
 ```
 
-### Run Instructions
-You'll notice a couple scripts in our `package.json`. While in the `client` directory, we can run the following scripts.
-#### Development Scripts
+#### Run Instructions
+You'll notice a couple scripts in our `package.json`. While in the `frontend` directory, we can run the following scripts.
+##### Development Scripts
 Here's the scripts we'll use to keep our codebase tidy:
 ```bash
 pnpm run lint   # Checks for potential bugs & style violations
@@ -50,9 +51,10 @@ To quickly see what we're working on, without compiling an executable:
 pnpm run dev  # Hosts a server to view our work on
 ```
 
-#### Production Scripts
+##### Production Scripts
 To compile the application & preview the production build, run the following command:
 ```bash
-pnpm run preview # Compiles & runs the exectuable on a server
+pnpm run build   # Compiles the application into an executable
+pnpm run preview # Runs the exectuable on a server
 ```
 This will enforce stricter type-checking and ensure sure our code follows the conventions & rules specified in our `tsconfig.json`. 
