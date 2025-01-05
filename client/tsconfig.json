@@ -7,9 +7,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*" : ["./src/*"],
-      "@kissena/*" : ["./src/kissena/*"],
-      "@admin/*" : ["./src/admin/*"]
+      "@/*": ["./src/*"],
+      "@kissena/*": ["./src/kissena/*"],
+      "@admin/*": ["./src/admin/*"]
     },
     "types": ["node"]
   }

@@ -6,10 +6,10 @@ import path from 'path'
 export default defineConfig({
   resolve: {
     alias: {
-        '@': path.resolve(__dirname, 'src/'),
-        '@kissena': path.resolve(__dirname, 'src/kissena'),
-        '@admin': path.resolve(__dirname, 'src/admin'),
+      '@': path.resolve(__dirname, 'src/'),
+      '@kissena': path.resolve(__dirname, 'src/kissena'),
+      '@admin': path.resolve(__dirname, 'src/admin'),
     },
-},
+  },
   plugins: [react()],
 })

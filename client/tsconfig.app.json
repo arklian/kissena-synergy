@@ -23,5 +23,5 @@
     "noUncheckedSideEffectImports": true
   },
   "include": ["src", "src/**/*.ts", "src/**/*.tsx"],
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.json"
 }
