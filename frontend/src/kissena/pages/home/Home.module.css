@@ -1,19 +1,18 @@
 .splash-container {
     position: relative;
     width: 100%;
+    height: 750px;
 }
 
-/*  */
 .hero-text-container {
     position: absolute;
+    left: 100px;
     bottom: 0;
-    left: 0;
 }
 
 /* Styles the Hero text */
 .hero-text {
     z-index: 4;
-    
     
     /* Option 1 - Boxed Gradient - Better support */
     color: var(--mantine-color-neonGreen-6);
@@ -83,6 +82,7 @@ Option 2 - Gradient box
     /* Ensure it is 3/2 aspect ratio (ie. wide */
     aspect-ratio: 3/2; 
     min-height: 400px;
+    height: 100%;
 
     width: 80%;
 }
