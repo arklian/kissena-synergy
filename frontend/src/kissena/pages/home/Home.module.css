@@ -13,8 +13,45 @@
 /* Styles the Hero text */
 .hero-text {
     z-index: 4;
+    
+    
+    /* Option 1 - Boxed Gradient - Better support */
     color: var(--mantine-color-neonGreen-6);
+    background: linear-gradient(to right, 
+        var(--mantine-color-darkGreen-2), 
+        #345011, 
+        var(--mantine-color-neonOrange-9), 
+        #396627, 
+        #ad9d0a); 
+    padding: 0 10px;
 }
+
+.hero-text:nth-child(2) {
+    color: var(--mantine-color-neonOrange-6);
+}
+
+/* 
+Option 2 - Gradient box
+.hero-text:first-child {
+    background: var(--mantine-color-neonGreen-6);
+    background: linear-gradient(to bottom,
+        var(--mantine-color-neonGreen-6),
+        var(--mantine-color-neonGreen-6),
+        var(--mantine-color-neonOrange-6)
+    );
+    background-clip: text;
+}
+
+.hero-text:nth-child(2) {
+    background: var(--mantine-color-neonGreen-6);
+    background: linear-gradient(to bottom,
+        var(--mantine-color-neonGreen-6),
+        var(--mantine-color-neonOrange-6),
+        var(--mantine-color-neonOrange-6)
+    );
+    background-clip: text;
+} */
+
 
 /* Hero Text custom underline */
 .hero-text::after {
@@ -25,7 +62,7 @@
 
     width: 100%;
     height: 0.2rem;
-    transform: translateY(-0.55rem);
+    transform: translateY(-0.6rem);
     z-index: -1;
 
     background-color: var(--mantine-color-neonGreen-6);

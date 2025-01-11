@@ -143,8 +143,8 @@ export const KissenaTheme = createTheme({
             if (props.size === 'xxl') {
                 return {
                     root: {
-                    '--title-fz': rem(86),
-                    '--title-lh': rem(80),
+                    '--title-fz': rem(96),
+                    '--title-lh': rem(88),
                     },
                 };
             }
