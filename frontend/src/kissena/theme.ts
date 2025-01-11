@@ -3,8 +3,10 @@ import {
     CSSVariablesResolver,
     rem,
     MantineColorsTuple,
+    Title
   } from '@mantine/core'
 
+import '@kissena/theme.module.css';
 
 /**
  * Defines the shades for the primary green
@@ -52,8 +54,8 @@ const darkGreen: MantineColorsTuple = [
     '#a8d099',
     '#8dc279',
     '#7cb964',
-    '#375421',
     '#2D4F21',
+    '#375421',
     '#224017',
     '#102608'
 ];
@@ -134,6 +136,23 @@ export const KissenaTheme = createTheme({
         lg: rem(20),
         xl: rem(24),
     },
+    components: {
+    // Add 'xxl' sizing to Title for hero text
+    Title: Title.extend({
+        vars: (theme, props) => {
+            if (props.size === 'xxl') {
+                return {
+                    root: {
+                    '--title-fz': rem(80),
+                    '--title-lh': rem(76),
+                    },
+                };
+            }
+            return { root: {} };
+        },
+        }),
+    },
+
     other : {
         standardBorderRadius: '10px'
     }

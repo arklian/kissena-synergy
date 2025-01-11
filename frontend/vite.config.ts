@@ -11,5 +11,10 @@ export default defineConfig({
       '@admin': path.resolve(__dirname, 'src/admin'),
     },
   },
+  css: {
+    modules: {
+      localsConvention: 'camelCase'
+    }
+  },
   plugins: [react()],
 })
