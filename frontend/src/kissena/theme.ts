@@ -143,8 +143,8 @@ export const KissenaTheme = createTheme({
             if (props.size === 'xxl') {
                 return {
                     root: {
-                    '--title-fz': rem(80),
-                    '--title-lh': rem(76),
+                    '--title-fz': rem(86),
+                    '--title-lh': rem(80),
                     },
                 };
             }
@@ -154,13 +154,15 @@ export const KissenaTheme = createTheme({
     },
 
     other : {
-        standardBorderRadius: '10px'
+        standardBorderRadius: '10px',
+        navBarHeight: '140px'
     }
 })
 
 export const resolver: CSSVariablesResolver = (theme) => ({
     variables: {
       '--mantine-border-radius': theme.other.standardBorderRadius,
+      '--mantine-navbar-height': theme.other.navBarHeight,
     },
     light: {},
     dark: {}

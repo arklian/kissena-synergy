@@ -1,5 +1,13 @@
-.home-container {
-    background-color: var(--mantine-color-darkGreen-6);
+.splash-container {
+    position: relative;
+    width: 100%;
+}
+
+/*  */
+.hero-text-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 /* Styles the Hero text */
@@ -29,11 +37,15 @@
 
 /* Hero Image Overlay (ie. the 'K') */
 .hero-image-container {
+    margin-left: auto;
     background-image: url('@kissena/pages/home/assets/landing_wide.jpg');
     background-position: 50%;
     background-size: cover;
-    height: 50vh;
     flex-grow: 1;
+    aspect-ratio: 3/2;
+    min-height: 400px;
+
+    width: 80%;
 }
 
 .hero-overlay {
