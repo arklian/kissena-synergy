@@ -112,10 +112,18 @@ export const KissenaTheme = createTheme({
     },
     primaryColor: "neonGreen",
     headings : {
+        fontWeight: '700',
         fontFamily: 'Inter, sans-serif',
+        
         sizes: {
-            h1: { fontSize: rem(64), fontWeight: '700' },
-            h2: { fontSize: rem(48), fontWeight: '700' },
+            h1: { 
+                fontSize: rem(64),
+                lineHeight: rem(60)
+             },
+            h2: { 
+                fontSize: rem(48),
+                lineHeight: rem(44)
+            },
         }
     },
     fontFamily: 'Instrument Sans, sans-serif',
