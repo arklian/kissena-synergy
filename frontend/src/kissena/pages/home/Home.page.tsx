@@ -12,10 +12,10 @@ export function HomePage() {
           <Stack mt={'auto'} className={styles.heroTextContainer}>
             <Title className={styles.heroText} size={'xxl'} order={1}>Kissena</Title>
             <Title className={styles.heroText} size={'xxl'} order={1}>Synergy</Title>
-            <Image mt={'1rem'} mb={'1rem'} w={'13em'} src={Swiggle} alt="" />
+            <Image mt={'1rem'} mb={'1rem'} w={'15em'} src={Swiggle} alt="" />
           </Stack>
           <Group className={styles.heroImageContainer}>
-            {/* <HeroOverlay /> */}
+            <div className={styles.heroOverlay}></div>
           </Group>
         </div>
         <Text className={styles.description} size='lg' ta='left'>

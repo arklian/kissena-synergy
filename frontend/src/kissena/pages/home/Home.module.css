@@ -61,8 +61,8 @@ Option 2 - Gradient box
     display: block;
 
     width: 100%;
-    height: 0.2rem;
-    transform: translateY(-0.6rem);
+    height: 0.3rem;
+    transform: translateY(-1rem);
     z-index: -1;
 
     background-color: var(--mantine-color-neonGreen-6);
@@ -72,20 +72,28 @@ Option 2 - Gradient box
     color: var(--mantine-color-lightYellow-1)
 }
 
-/* Hero Image Overlay (ie. the 'K') */
+/* Hero Image (ie. image behind the 'K') */
 .hero-image-container {
     margin-left: auto;
     background-image: url('@kissena/pages/home/assets/landing_wide.jpg');
     background-position: 50%;
     background-size: cover;
     flex-grow: 1;
-    aspect-ratio: 3/2;
+
+    /* Ensure it is 3/2 aspect ratio (ie. wide */
+    aspect-ratio: 3/2; 
     min-height: 400px;
 
     width: 80%;
 }
 
+/* Hero Image Overlay (ie. the K) */
 .hero-overlay {
     height: 100%;
-    fill: red;
+    width: 100%;
+    mask-repeat: contain;
+    mask-repeat: no-repeat;
+    mask-composite: exclude;
+    background-color: var(--mantine-color-darkGreen-2);
+    mask-image: url('@kissena/pages/home/assets/overlay.svg');
 }
