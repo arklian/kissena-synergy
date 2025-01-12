@@ -1,4 +1,5 @@
 import { HomePage } from '@kissena/pages/home/Home.page'
+import { DemoPage } from '@kissena/pages/placeholder/Demo.page'
 
 export const KissenaRoutes = [
   {
@@ -9,6 +10,6 @@ export const KissenaRoutes = [
   {
     path: 'placeholder',
     description: 'placeholder for future content',
-    element: <div>A funny lil placeholder.</div>,
+    element: <DemoPage/>,
   },
 ]
