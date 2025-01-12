@@ -8,6 +8,10 @@
     position: absolute;
     left: 100px;
     bottom: 0;
+
+    @mixin smaller-than $mantine-breakpoint-md {
+        left: 20px;
+    }
 }
 
 /* Styles the Hero text */

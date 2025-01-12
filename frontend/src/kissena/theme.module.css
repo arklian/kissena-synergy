@@ -3,3 +3,9 @@ html, body, #root {
     width: 100%;
     background-color: var(--mantine-color-darkGreen-6);
 }
+
+:root {
+    @mixin smaller-than $mantine-breakpoint-md {
+        font-size: 12px;
+    }
+}
