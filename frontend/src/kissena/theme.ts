@@ -144,7 +144,7 @@ export const KissenaTheme = createTheme({
                 return {
                     root: {
                     '--title-fz': rem(110),
-                    '--title-lh': rem(106),
+                    '--title-lh': rem(109),
                     },
                 };
             }
