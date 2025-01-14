@@ -11,6 +11,7 @@ import '@kissena/theme.module.css';
 /**
  * Defines the shades for the primary green
  * Base Color: Index 6
+ * Tint: Index 9
  */
 const neonGreen: MantineColorsTuple = [
     '#f9ffe3',
@@ -50,7 +51,7 @@ const neonOrange: MantineColorsTuple = [
 const darkGreen: MantineColorsTuple = [
     '#f3f9f1',
     '#c8e0bf',
-    '#2D4F21',
+    '#badead',
     '#a8d099',
     '#8dc279',
     '#7cb964',
@@ -61,7 +62,7 @@ const darkGreen: MantineColorsTuple = [
 ];
 
 /**
- * Defines the shades for the background green
+ * Defines the shades for the light yellow
  * Base Color: Index 1
  */
 const lightYellow: MantineColorsTuple = [

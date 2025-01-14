@@ -21,7 +21,7 @@
     
     /* Create boxed gradient */
     background: linear-gradient(to right, 
-        var(--mantine-color-darkGreen-2), 
+        var(--mantine-color-darkGreen-6), 
         #345011, 
         var(--mantine-color-neonOrange-9), 
         #396627, 
@@ -75,7 +75,7 @@
 
     mask-repeat: no-repeat;
     mask-composite: exclude;
-    background-color: var(--mantine-color-darkGreen-2);
+    background-color: var(--mantine-color-darkGreen-6);
     mask-image: url('@kissena/pages/home/assets/overlay.svg');
     
     transform: translateX(0);
