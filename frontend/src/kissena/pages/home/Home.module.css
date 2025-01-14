@@ -1,7 +1,26 @@
 .splash-container {
     position: relative;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 750px;
+
+    &::before {
+        content: ' ';
+        opacity: 0.15;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-image: url('@kissena/pages/home/assets/background.jpg');
+        backdrop-filter: saturate(130%);
+
+        box-shadow: 0 0 5vw 5vw var(--mantine-color-darkGreen-6) inset;
+        z-index: 9;
+    }
 }
 
 .hero-text-container {
@@ -12,6 +31,8 @@
     @mixin smaller-than $mantine-breakpoint-md {
         left: 20px;
     }
+
+    z-index: 99;
 }
 
 /* Styles the Hero text */
@@ -24,7 +45,7 @@
         var(--mantine-color-darkGreen-6), 
         #345011, 
         var(--mantine-color-neonOrange-9), 
-        #396627, 
+        var(--mantine-color-darkGreen-8), 
         #ad9d0a); 
     padding: 0 10px;
 }
@@ -41,7 +62,7 @@
     display: block;
 
     width: 100%;
-    height: 0.3rem;
+    height: 0.2rem;
     transform: translateY(-1rem);
     z-index: -1;
 

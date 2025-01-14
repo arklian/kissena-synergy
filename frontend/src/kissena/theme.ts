@@ -55,7 +55,7 @@ const darkGreen: MantineColorsTuple = [
     '#a8d099',
     '#8dc279',
     '#7cb964',
-    '#2D4F21',
+    '#0D1608',
     '#375421',
     '#224017',
     '#102608'

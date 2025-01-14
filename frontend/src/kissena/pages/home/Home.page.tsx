@@ -2,6 +2,11 @@ import styles from '@kissena/pages/home/Home.module.css';
 import Swiggle from '@kissena/pages/home/assets/swiggle.svg';
 import { Stack, Image, Title, Group, Text } from '@mantine/core';
 
+import { motion } from "motion/react"
+
+// Create a motion-supported variant of Mantine components
+const MotionTitle = motion.create(Title);
+
 export function HomePage() {
   // Horizontal offset for the hero-text from left viewport edge
   const heroText_dx = 100;
@@ -11,9 +16,31 @@ export function HomePage() {
     <Stack>
     <Stack h={'100%'} gap={'30'}>
       <div className={styles.splashContainer}>
-        <Stack mt={'auto'} className={styles.heroTextContainer}>
-          <Title className={styles.heroText} size={'xxl'} order={1}>Kissena</Title>
-          <Title className={styles.heroText} size={'xxl'} order={1}>Synergy</Title>
+        <Stack 
+          className={styles.heroTextContainer}
+          mt={'auto'}>
+          <MotionTitle 
+            initial={{ opacity: 0, translateX: '-30%' }}
+            animate={{ opacity: 1, translateX: '0' }}
+            transition={{
+                duration: 0.4,
+                delay: 0.2,
+                scale: { type: 'easeOut' } 
+            }}
+            className={styles.heroText} 
+            size={'xxl'} 
+            order={1}>Kissena</MotionTitle>
+          <MotionTitle 
+            initial={{ opacity: 0, translateX: '-30%' }}
+            animate={{ opacity: 1, translateX: '0' }}
+            transition={{
+                duration: 0.4,
+                delay: 0.5,
+                scale: { type: 'easeOut' } 
+            }}
+            className={styles.heroText} 
+            size={'xxl'} 
+            order={1}>Synergy</MotionTitle>
           <Image mt={'1rem'} mb={'1rem'} w={'15em'} src={Swiggle} alt="" />
         </Stack>
         <Group className={styles.heroImageContainer}>
