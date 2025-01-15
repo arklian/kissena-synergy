@@ -8,10 +8,14 @@ import {
 
 import '@kissena/theme.module.css';
 
+  } from '@mantine/core'
+
 /**
  * Defines the shades for the primary green
  * Base Color: Index 6
+
  * Tint: Index 9
+
  */
 const neonGreen: MantineColorsTuple = [
     '#f9ffe3',
@@ -62,7 +66,9 @@ const darkGreen: MantineColorsTuple = [
 ];
 
 /**
- * Defines the shades for the light yellow
+
+ * Defines the shades for the background green
+
  * Base Color: Index 1
  */
 const lightYellow: MantineColorsTuple = [
@@ -137,6 +143,7 @@ export const KissenaTheme = createTheme({
         lg: rem(20),
         xl: rem(24),
     },
+
     components: {
     // Add 'xxl' sizing to Title for hero text
     Title: Title.extend({
@@ -157,6 +164,7 @@ export const KissenaTheme = createTheme({
     other : {
         standardBorderRadius: '10px',
         navBarHeight: '140px'
+
     }
 })
 
@@ -164,6 +172,7 @@ export const resolver: CSSVariablesResolver = (theme) => ({
     variables: {
       '--mantine-border-radius': theme.other.standardBorderRadius,
       '--mantine-navbar-height': theme.other.navBarHeight,
+
     },
     light: {},
     dark: {}
