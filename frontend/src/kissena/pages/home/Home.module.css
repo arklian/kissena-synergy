@@ -1,0 +1,108 @@
+.splash-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 750px;
+
+    &::before {
+        content: ' ';
+        opacity: 0.15;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-image: url('@kissena/pages/home/assets/background.jpg');
+        backdrop-filter: saturate(130%);
+
+        box-shadow: 0 0 5vw 5vw var(--mantine-color-darkGreen-6) inset;
+        z-index: 9;
+    }
+}
+
+.hero-text-container {
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+
+    @mixin smaller-than $mantine-breakpoint-md {
+        left: 20px;
+    }
+
+    z-index: 99;
+}
+
+/* Styles the Hero text */
+.hero-text {
+    z-index: 4;
+    color: var(--mantine-color-neonGreen-6);
+    
+    /* Create boxed gradient */
+    background: linear-gradient(to right, 
+        var(--mantine-color-darkGreen-6), 
+        #345011, 
+        var(--mantine-color-neonOrange-9), 
+        var(--mantine-color-darkGreen-8), 
+        #ad9d0a); 
+    padding: 0 10px;
+}
+
+.hero-text:nth-child(2) {
+    color: var(--mantine-color-neonOrange-6);
+}
+
+/* Hero Text custom underline */
+.hero-text::after {
+    content: ' ';
+
+    position: relative;
+    display: block;
+
+    width: 100%;
+    height: 0.2rem;
+    transform: translateY(-1rem);
+    z-index: -1;
+
+    background-color: var(--mantine-color-neonGreen-6);
+}
+
+.description {
+    color: var(--mantine-color-lightYellow-1)
+}
+
+/* Hero Image (ie. image behind the 'K') */
+.hero-image-container {
+    margin-left: auto;
+    background-image: url('@kissena/pages/home/assets/landing_wide.jpg');
+    background-position: 50%;
+    flex-grow: 1;
+
+    /* Ensure it is 3/2 aspect ratio (ie. wide */
+    aspect-ratio: 3/2; 
+    min-height: 400px;
+    height: 100%;
+
+    width: 80%;
+}
+
+/* Hero Image Overlay (ie. the K) */
+.hero-overlay {
+    position: absolute;
+    height: 800px;
+    width: 800px;
+
+    mask-repeat: no-repeat;
+    mask-composite: exclude;
+    background-color: var(--mantine-color-darkGreen-6);
+    mask-image: url('@kissena/pages/home/assets/overlay.svg');
+    
+    transform: translateX(0);
+    transition: transform 1s ease-in-out;
+
+    @mixin smaller-than $mantine-breakpoint-md {
+        transform: translateX(-100%);
+    }
+}

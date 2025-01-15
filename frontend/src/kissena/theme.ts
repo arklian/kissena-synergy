@@ -3,12 +3,19 @@ import {
     CSSVariablesResolver,
     rem,
     MantineColorsTuple,
+    Title
   } from '@mantine/core'
 
+import '@kissena/theme.module.css';
+
+  } from '@mantine/core'
 
 /**
  * Defines the shades for the primary green
  * Base Color: Index 6
+
+ * Tint: Index 9
+
  */
 const neonGreen: MantineColorsTuple = [
     '#f9ffe3',
@@ -48,18 +55,20 @@ const neonOrange: MantineColorsTuple = [
 const darkGreen: MantineColorsTuple = [
     '#f3f9f1',
     '#c8e0bf',
-    '#2D4F21',
+    '#badead',
     '#a8d099',
     '#8dc279',
     '#7cb964',
+    '#0D1608',
     '#375421',
-    '#2D4F21',
     '#224017',
     '#102608'
 ];
 
 /**
+
  * Defines the shades for the background green
+
  * Base Color: Index 1
  */
 const lightYellow: MantineColorsTuple = [
@@ -134,14 +143,36 @@ export const KissenaTheme = createTheme({
         lg: rem(20),
         xl: rem(24),
     },
+
+    components: {
+    // Add 'xxl' sizing to Title for hero text
+    Title: Title.extend({
+        vars: (theme, props) => {
+            if (props.size === 'xxl') {
+                return {
+                    root: {
+                    '--title-fz': rem(110),
+                    '--title-lh': rem(109),
+                    },
+                };
+            }
+            return { root: {} };
+        },
+        }),
+    },
+
     other : {
-        standardBorderRadius: '10px'
+        standardBorderRadius: '10px',
+        navBarHeight: '140px'
+
     }
 })
 
 export const resolver: CSSVariablesResolver = (theme) => ({
     variables: {
       '--mantine-border-radius': theme.other.standardBorderRadius,
+      '--mantine-navbar-height': theme.other.navBarHeight,
+
     },
     light: {},
     dark: {}
