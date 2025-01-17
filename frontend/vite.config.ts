@@ -13,8 +13,8 @@ export default defineConfig({
   },
   css: {
     modules: {
-      localsConvention: 'camelCase'
-    }
+      localsConvention: 'camelCase',
+    },
   },
   plugins: [react()],
 })

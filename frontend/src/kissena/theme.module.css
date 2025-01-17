@@ -1,11 +1,12 @@
-html, body, #root {
-    height: 100%;
-    width: 100%;
-    background-color: var(--mantine-color-darkGreen-6);
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
 }
 
 :root {
-    @mixin smaller-than $mantine-breakpoint-md {
-        font-size: 12px;
-    }
+  @mixin smaller-than $mantine-breakpoint-md {
+    font-size: 12px;
+  }
 }
