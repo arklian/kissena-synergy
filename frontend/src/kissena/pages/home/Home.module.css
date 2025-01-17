@@ -115,6 +115,9 @@ body {
   transition: transform 1s ease-in-out;
 
   @mixin smaller-than $mantine-breakpoint-md {
+    /* Used to ensure that the entrance animation specified in motion does not fire, but if   
+    the viewport gets wider, we'll animate it back in.
+    */
     transform: translateX(-100%) !important;
   }
 }
