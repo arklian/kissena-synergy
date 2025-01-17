@@ -8,7 +8,7 @@ import {
 
 import '@kissena/theme.module.css';
 
-  } from '@mantine/core'
+
 
 /**
  * Defines the shades for the primary green
