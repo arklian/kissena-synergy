@@ -9,7 +9,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@kissena/*": ["./src/kissena/*"],
-      "@admin/*": ["./src/admin/*"]
+      "@api/*": ["./src/api/*"],
+      "@admin/*": ["./src/admin/*"],
     },
     "types": ["node"]
   }

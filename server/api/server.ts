@@ -3,7 +3,10 @@ import express from "express";
 import eventsRouter from "@routes/events";
 import announcementsRouter from "@routes/announcements";
 import resourcesRouter from "@routes/resources";
+import cors from "cors";
+
 const app = express();
+app.use(cors({}))
 
 const HOSTNAME = "http://localhost";
 const PORT = 3000;
