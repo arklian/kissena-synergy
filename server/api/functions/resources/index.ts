@@ -5,4 +5,11 @@ import { upsertTag } from "./upsertTag";
 import { deleteResource } from "./deleteResource";
 import { deleteTag } from "./deleteTag";
 
-export { getResources, getTags, upsertResource, upsertTag, deleteResource, deleteTag };
+export {
+  getResources,
+  getTags,
+  upsertResource,
+  upsertTag,
+  deleteResource,
+  deleteTag,
+};

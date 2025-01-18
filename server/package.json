@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon api/server.ts"
+    "build": "tsc -b",
+    "preview": "node dist/server.js",
+    "server": "nodemon api/server.ts",
+    "format": "prettier --write .",
+    "lint": "eslint . ",
+    "lint:fix": "eslint . --fix "
   },
   "keywords": [],
   "author": "Patina Network",
@@ -14,8 +19,14 @@
     "express": "^4.21.2"
   },
   "devDependencies": {
+    "@eslint/js": "^9.18.0",
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.7",
-    "typescript": "^5.7.3"
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0"
   }
 }
