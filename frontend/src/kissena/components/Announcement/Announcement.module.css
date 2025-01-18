@@ -1,0 +1,12 @@
+.announcement-container:not(:last-child) {
+    border-bottom: 1px solid var(--mantine-color-darkGreen-5);
+}
+
+.description-container {
+    width: max(300px, 60%)
+}
+
+.button-label {
+    color: var(--mantine-color-lightYellow-1);
+    font-weight: 500;
+}

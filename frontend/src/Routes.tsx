@@ -5,8 +5,6 @@ const Routes = [
   // Base path for hosting the kissena website
   {
     path: '/',
-    description: 'Home',
-    element: <HomePage />,
     children: KissenaRoutes,
   },
   {

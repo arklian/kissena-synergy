@@ -1,6 +1,6 @@
 import { Container } from '@mantine/core'
 import { PropsWithChildren } from 'react'
-import styles from '@kissena/components/PageContainer.module.css'
+import styles from '@kissena/components/PageContainer/PageContainer.module.css'
 
 interface PageContainerProps {
   wide?: boolean
