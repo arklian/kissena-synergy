@@ -1,10 +1,11 @@
 import styles from '@kissena/pages/announcements/Announcement.module.css';
 import { Announcement, AnnouncementData } from '@/kissena/components/Announcement/Announcement'
 import { PageContainer } from '@/kissena/components/PageContainer/PageContainer.tsx'
-import { Title, Stack } from '@mantine/core'
-import { useMemo, useState } from 'react';
+import { Title, Stack, Portal, Affix } from '@mantine/core'
+import { useContext, useMemo } from 'react';
 import { PaginationProvider } from '@/kissena/components/Pagination/PaginationProvider';
 import { PaginationControl } from '@/kissena/components/Pagination/PaginatonControl';
+import { PaginationContext } from '@/kissena/components/Pagination/PaginationContext';
 
 const sampleAnnouncements:AnnouncementData[] = [
    {
@@ -68,16 +69,27 @@ const sampleAnnouncements:AnnouncementData[] = [
 
 // Component for the list of announcements & the pagination control
 export function AnnouncementsList() {
-  const rawAnnouncements = sampleAnnouncements;
-  
-  const renderedAnnouncements = rawAnnouncements.map((item, index) => {
-    return <Announcement key={index} title={item.title} description={item.description} datePosted={item.datePosted} redirectUrl={item.redirectUrl} />
-  });
+  const { activePage, ENTRIES_PER_PAGE } = useContext(PaginationContext);
 
+  // Fetches the data necessary for the currently active page
+  const getPageEntries = () => {
+      return sampleAnnouncements.slice(
+        ((activePage - 1 ) * ENTRIES_PER_PAGE),
+        activePage * ENTRIES_PER_PAGE
+      )
+  }
+
+  // Maps the raw announcement data into JSX elements when the page changes
+  const renderedAnnouncements = useMemo(
+    () => {
+      return getPageEntries().map((item, index) => {
+        return <Announcement key={index} title={item.title} description={item.description} datePosted={item.datePosted} redirectUrl={item.redirectUrl} />
+      });
+  }, [activePage])
+  
   return (
   <Stack>
       {renderedAnnouncements}
-      <PaginationControl />
   </Stack>
   )
 }
@@ -85,7 +97,6 @@ export function AnnouncementsList() {
 // Component for the page content
 export function AnnouncementsPage() {
   const total_announcements = 10;
-
   const isLoading = false;
   
   return (
@@ -99,6 +110,12 @@ export function AnnouncementsPage() {
             : <AnnouncementsList />
           }
           </Stack>
+          <Portal>
+            <Affix position={{ bottom: 20, right: 20 }}>
+
+            <PaginationControl />
+            </Affix>
+          </Portal>
         </PaginationProvider>
       </PageContainer>
   )
