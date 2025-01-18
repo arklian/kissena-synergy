@@ -3,7 +3,6 @@ import { MantineProvider } from '@mantine/core'
 import '@mantine/core/styles.css'
 
 import { KissenaTheme, KissenaCSSResolver } from '@/kissena/theme'
-import { KissenaTheme, KissenaCSSResolver } from '@/kissena/theme'
 import '@kissena/theme.module.css'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
