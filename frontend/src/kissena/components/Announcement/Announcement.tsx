@@ -10,6 +10,10 @@ export interface AnnouncementData {
 };
 
 export function Announcement({title, datePosted, description, redirectUrl}:AnnouncementData) { 
+    // Configure width of learn more button (and wrapper anchor tag)
+    const buttonWidth = 120;
+
+    // Format date to MM/DD/YYYY
     const stringifiedDate = useMemo(() => {
         return datePosted.toLocaleDateString('en-US')
     }, [datePosted])
@@ -36,7 +40,9 @@ export function Announcement({title, datePosted, description, redirectUrl}:Annou
                 ? <></>
                 : <>
                 <Space h='lg'/>
-                <Button classNames={{label: styles.buttonLabel}} size='sm' w={120} color='darkGreen.4'>Learn More</Button>
+                <a href={redirectUrl} style={{ width: `${buttonWidth}px` }}>
+                <Button classNames={{label: styles.buttonLabel}} size='sm' w={buttonWidth} color='darkGreen.4'>Learn More</Button>
+                </a>
                 </>
             }
 
