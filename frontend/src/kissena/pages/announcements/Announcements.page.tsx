@@ -1,8 +1,10 @@
-// import styles from '@kissena/pages/home/Home.module.css'
-
+import styles from '@kissena/pages/announcements/Announcement.module.css';
 import { Announcement, AnnouncementData } from '@/kissena/components/Announcement/Announcement'
 import { PageContainer } from '@/kissena/components/PageContainer/PageContainer.tsx'
 import { Title, Stack } from '@mantine/core'
+import { useMemo, useState } from 'react';
+import { PaginationProvider } from '@/kissena/components/Pagination/PaginationProvider';
+import { PaginationControl } from '@/kissena/components/Pagination/PaginatonControl';
 
 const sampleAnnouncements:AnnouncementData[] = [
    {
@@ -64,17 +66,40 @@ const sampleAnnouncements:AnnouncementData[] = [
   },
 ];
 
-export function AnnouncementsPage() {
+// Component for the list of announcements & the pagination control
+export function AnnouncementsList() {
   const rawAnnouncements = sampleAnnouncements;
+  
   const renderedAnnouncements = rawAnnouncements.map((item, index) => {
     return <Announcement key={index} title={item.title} description={item.description} datePosted={item.datePosted} redirectUrl={item.redirectUrl} />
   });
+
+  return (
+  <Stack>
+      {renderedAnnouncements}
+      <PaginationControl />
+  </Stack>
+  )
+}
+
+// Component for the page content
+export function AnnouncementsPage() {
+  const total_announcements = 10;
+
+  const isLoading = false;
+  
   return (
       <PageContainer>
-        <Title order={2} c='neonGreen.9'>Announcements</Title>
-        <Stack>
-        {renderedAnnouncements}
-        </Stack>
+        <PaginationProvider maxEntries={total_announcements}>
+          <Stack>
+          <Title order={2} c='neonGreen.9'>Announcements</Title>
+          {
+            isLoading
+            ? <>Loading...</>
+            : <AnnouncementsList />
+          }
+          </Stack>
+        </PaginationProvider>
       </PageContainer>
   )
 }
