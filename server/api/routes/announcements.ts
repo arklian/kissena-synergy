@@ -5,7 +5,7 @@ import {
   getAnnouncementCount,
   upsertAnnouncement,
   deleteAnnouncement,
-} from "../functions/announcements";
+} from "@functions/announcements";
 
 const announcementsRouter = Router();
 

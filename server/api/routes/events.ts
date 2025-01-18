@@ -5,7 +5,7 @@ import {
   getEventCount,
   upsertEvent,
   deleteEvent,
-} from "../functions/events";
+} from "@functions/events";
 
 const eventsRouter = Router();
 

@@ -1,7 +1,8 @@
+import 'module-alias/register'
 import express from "express";
-import announcementsRouter from "./routes/announcements";
-import eventsRouter from "./routes/events";
-import resourcesRouter from "./routes/resources";
+import eventsRouter from "@routes/events";
+import announcementsRouter from "@routes/announcements";
+import resourcesRouter from "@routes/resources";
 const app = express();
 
 const HOSTNAME = "http://localhost";

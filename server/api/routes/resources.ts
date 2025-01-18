@@ -7,7 +7,7 @@ import {
   upsertTag,
   deleteResource,
   deleteTag,
-} from "../functions/resources";
+} from "@functions/resources";
 
 const resourcesRouter = Router();
 

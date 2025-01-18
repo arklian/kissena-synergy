@@ -5,7 +5,15 @@
     "target": "es6",
     "moduleResolution": "node",
     "sourceMap": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    
+    "baseUrl": ".",
+    "paths": {
+      "@api/*": ["./api/*"],
+      "@routes/*": ["./api/routes/*"],
+      "@functions/*": ["./api/functions/*"],
+    },
+    "types": ["node"]
   },
   "lib": ["es2015"]
 }
