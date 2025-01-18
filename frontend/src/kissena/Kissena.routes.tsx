@@ -10,6 +10,6 @@ export const KissenaRoutes = [
   {
     path: 'placeholder',
     description: 'placeholder for future content',
-    element: <DemoPage/>,
+    element: <DemoPage />,
   },
 ]
