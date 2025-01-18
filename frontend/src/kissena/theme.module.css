@@ -7,6 +7,6 @@ body,
 
 :root {
   @mixin smaller-than $mantine-breakpoint-md {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
