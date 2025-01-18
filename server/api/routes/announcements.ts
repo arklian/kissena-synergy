@@ -4,7 +4,7 @@ import { getAnnouncements, getAnnouncementCount, upsertAnnouncement, deleteAnnou
 
 const announcementsRouter = Router();
 
-// GET: /latest/announcements/{offset}/{entryCount}
+// GET: /announcements/latest/{offset}/{entryCount}
 // Gets the <entryCount>th most recent announcements, offset by <offset>
 announcementsRouter.get('/latest/:offset/:entryCount', getAnnouncements);
 
