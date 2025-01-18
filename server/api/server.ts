@@ -1,5 +1,7 @@
 import express from 'express';
 import announcementsRouter from './routes/announcements';
+import eventsRouter from './routes/events';
+import resourcesRouter from './routes/resources';
 const app = express();
 
 const HOSTNAME = "http://localhost"
@@ -10,5 +12,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/announcements', announcementsRouter);
+app.use('/events', eventsRouter)
+app.use('/resources', resourcesRouter)
 
 app.listen(PORT, () => console.log(`Listening on ${HOSTNAME}:${PORT}`));
