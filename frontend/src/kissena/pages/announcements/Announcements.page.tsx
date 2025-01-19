@@ -1,72 +1,19 @@
-import { Announcement } from '@/kissena/components/Announcement/Announcement'
-import { PaginationProvider, PaginationControl, PaginationContext } from '@/kissena/components/Pagination';
+import { PaginationProvider } from '@/kissena/components/Pagination';
 import { PageContainer } from '@/kissena/components/PageContainer/PageContainer.tsx'
-import { Title, Stack, Portal, Affix, Skeleton } from '@mantine/core'
-import { useContext, useEffect, useMemo } from 'react';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { getAnnouncementCount, getAnnouncements } from '@api/announcements';
-import { AnnouncementData } from '@/types';
+import { Title, Stack, Button, Modal, TextInput, Textarea } from '@mantine/core'
+import { useDisclosure } from '@mantine/hooks';
+import { useMemo } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { getAnnouncementCount } from '@api/announcements';
 import { ErrorBlurb } from '@/kissena/components/ErrorBlurb/ErrorBlurb';
-
-function PlaceholderAnnouncements({hidden}: {hidden:boolean}) {
-  return (
-    <Stack>
-      {Array.from(Array(5)).map((elem, index) => {
-        return <Skeleton hidden={hidden} key={index} h={200} opacity={0.1} />
-      })} 
-    </Stack>
-  )
-}
-
-// Component for the list of announcements & the pagination control
-export function AnnouncementsList() {
-  const queryClient = useQueryClient();
-  const { activePage, ENTRIES_PER_PAGE } = useContext(PaginationContext);
-
-  // Fetch list of announcements
-  const { data, isLoading, isError, refetch } = useQuery<AnnouncementData[]>({
-    queryKey: ["announcements"],
-    queryFn: () => {
-      // NOTE: Unsure why TS is giving me a linter error, leaving for now to test.
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call 
-      return getAnnouncements((activePage - 1) * ENTRIES_PER_PAGE, ENTRIES_PER_PAGE) as Promise<AnnouncementData[]>
-    }
-  });
-
-  // Render list of announcements, if possible
-  const content = useMemo(() => {
-    if (isLoading) { 
-      return <PlaceholderAnnouncements hidden={!isLoading} />
-    }
-    if (isError) { 
-      return <ErrorBlurb />
-    }
-    return (data ?? []).map((item) => {
-      return <Announcement key={item.id} title={item.title} description={item.description} datePosted={item.datePosted} redirectUrl={item.redirectUrl} id={item.id} />
-    })
-  }, [data, isLoading, isError])
-
-  // Refetch new announcements when page changes
-  useEffect(() => {
-    refetch()
-      .catch(err => console.error(err))
-  }, [activePage, queryClient, refetch])
-  
-  return (
-  <Stack>
-      {content}
-      <Portal>
-        <Affix position={{ bottom: 20, right: 20 }}>
-          <PaginationControl />
-        </Affix>
-      </Portal>
-  </Stack>
-  )
-}
+import { AnnouncementList } from '@kissena/pages/announcements/AnnouncementList';
+import styles from '@kissena/pages/announcements/Announcement.module.css'
+import { AddAnnouncementPane } from '@kissena/pages/announcements/AddAnnouncementPane';
 
 // Component for the page content
 export function AnnouncementsPage() {
-  const { data:totalAnnouncements, isLoading, isError } = useQuery({
+  const [opened, { open, close }] = useDisclosure(false);
+  const { data:totalAnnouncements, isError } = useQuery({
     queryKey: ["announcementsCount"],
     queryFn: getAnnouncementCount as () => Promise<number>
   })
@@ -76,18 +23,27 @@ export function AnnouncementsPage() {
       return <ErrorBlurb />
     }
 
-  return (
-    <PaginationProvider maxEntries={totalAnnouncements ?? 0}>
-        <PlaceholderAnnouncements hidden={!isLoading} />
-        <AnnouncementsList />
-    </PaginationProvider>
-    )
-  }, [totalAnnouncements, isLoading, isError])
+    return (
+      <PaginationProvider maxEntries={totalAnnouncements ?? 0}>
+          <AnnouncementList />
+      </PaginationProvider>
+      )
+    }, [totalAnnouncements, isError])
+
+  const adminContent = (
+    <>
+      <Modal size={'lg'} classNames={{ 'header': styles.mantineModalHeader }} className={styles.mantineModalHeader} opened={opened} onClose={close} title="Create Announcement" centered>
+        <AddAnnouncementPane />
+      </Modal>
+      <Button variant='outline' onClick={open} autoContrast>Create Announcement</Button>
+    </>
+  )
   
   return (
       <PageContainer>
         <Stack>
         <Title order={2} c='neonGreen.9'>Announcements</Title>
+        { adminContent }
         { content }
         </Stack>
       </PageContainer>

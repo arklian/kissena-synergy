@@ -17,3 +17,7 @@ export function getAnnouncements(offset:number, entryCount:number):Promise<Annou
         .then(res => res.data)
         .then(res => res.map(item => formatRaw(item)))
 }
+
+export function postAnnouncement(title:string, description:string, redirectUrl:string, id:string=crypto.randomUUID()) {
+    // return axios.post(`${HOSTNAME}/announcements/post`)
+}
