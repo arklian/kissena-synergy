@@ -18,6 +18,14 @@ export function getAnnouncements(offset:number, entryCount:number):Promise<Annou
         .then(res => res.map(item => formatRaw(item)))
 }
 
-export function postAnnouncement(title:string, description:string, redirectUrl:string, id:string=crypto.randomUUID()) {
-    // return axios.post(`${HOSTNAME}/announcements/post`)
+export function postAnnouncement(title:string, description:string, redirectUrl:string, id:string=crypto.randomUUID()):Promise<AnnouncementResponse> {
+    const body = {
+        'title' : title,
+        'description' : description,
+        'redirectUrl' : redirectUrl,
+        'id' : id
+    }
+
+    return axios.post<AnnouncementResponse>(`${HOSTNAME}/announcements/post`, body)
+        .then(res => res.data)
 }

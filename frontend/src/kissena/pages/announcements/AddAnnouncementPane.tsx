@@ -1,18 +1,32 @@
 import { useState } from "react";
 import { Stack, TextInput, Button, Textarea, Space } from "@mantine/core";
+import { useMutation } from "@tanstack/react-query";
 import { postAnnouncement } from "@/api/announcements";
 
-export function AddAnnouncementPane({close}:AddAnnouncementPaneProps) {
+interface AddAnnouncementPaneProps {
+    id?:string
+}
+
+export function AddAnnouncementPane({id}:AddAnnouncementPaneProps) {
     const [title, setTitle] = useState<string>("");
     const [description, setDescription] = useState<string>("");
     const [redirectLink, setRedirectLink] = useState<string>("");
 
+    const mutateAnnouncement = useMutation({
+        mutationFn: () => {
+            return postAnnouncement(title, description, redirectLink, id ?? crypto.randomUUID())
+        }
+    })
+
     const onSubmit = (event:React.FormEvent) => {
         event.preventDefault();
-        // postAnnouncement(title, description, redirectLink);
-
-        // On success
-        window.location.reload();
+        mutateAnnouncement.mutateAsync()
+        .then(() => {
+            window.location.reload();
+        })
+        .catch(() => {
+            alert("An error occured. Could not post the announcement.")
+        })
     };
 
     return (

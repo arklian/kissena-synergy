@@ -17,13 +17,12 @@ announcementsRouter.get("/latest/:offset/:entryCount", getAnnouncements);
 // Retrieves the count of all announcements made
 announcementsRouter.get("/count", getAnnouncementCount);
 
-// POST: /announcements/post/{postId}
-// Upserts the post specified by the request id
-// Uses the data provided by the request body.
-announcementsRouter.post("/post/:postId", upsertAnnouncement);
+// POST: /announcements/post
+// Upserts an announcement specified by the post id in the request body
+announcementsRouter.post("/post", upsertAnnouncement);
 
-// DELETE: /announcements/delete/{postId}
-// Deletes the post specified by the postId
-announcementsRouter.delete("/delete/:postId", deleteAnnouncement);
+// DELETE: /announcements/delete
+// Deletes the announcement specified by the postId in the request body
+announcementsRouter.delete("/delete", deleteAnnouncement);
 
 export default announcementsRouter;
