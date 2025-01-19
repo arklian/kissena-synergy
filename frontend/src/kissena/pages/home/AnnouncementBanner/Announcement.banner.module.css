@@ -1,0 +1,8 @@
+$icon-size: 20px;
+
+.banner-container {
+    display: grid;
+    grid-template-columns: auto 2px 1fr $icon-size;
+    grid-template-areas: 'label divider content redirect';
+    gap: 1rem;
+}

@@ -18,9 +18,7 @@ export function AnnouncementList() {
   const { data, isLoading, isError, refetch } = useQuery<AnnouncementData[]>({
     queryKey: ["announcements"],
     queryFn: () => {
-      // NOTE: Unsure why TS is giving me a linter error, leaving for now to test.
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call 
-      return getAnnouncements((activePage - 1) * ENTRIES_PER_PAGE, ENTRIES_PER_PAGE) as Promise<AnnouncementData[]>
+      return getAnnouncements((activePage - 1) * ENTRIES_PER_PAGE, ENTRIES_PER_PAGE)
     }
   });
 

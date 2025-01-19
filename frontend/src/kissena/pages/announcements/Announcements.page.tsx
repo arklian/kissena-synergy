@@ -1,6 +1,6 @@
 import { PaginationProvider } from '@/kissena/components/Pagination';
 import { PageContainer } from '@/kissena/components/PageContainer/PageContainer.tsx'
-import { Title, Stack, Button, Modal, TextInput, Textarea } from '@mantine/core'
+import { Title, Stack, Button, Modal } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks';
 import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
