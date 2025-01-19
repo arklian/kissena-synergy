@@ -79,6 +79,10 @@
     background-image: url('@kissena/pages/home/assets/landing_wide.jpg');
     background-position: 50%;
     flex-grow: 1;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no repeat;
+
 
     /* Ensure it is 3/2 aspect ratio (ie. wide */
     aspect-ratio: 3/2; 

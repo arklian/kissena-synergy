@@ -142,6 +142,7 @@ export const KissenaTheme = createTheme({
         md: rem(16), // Body text size
         lg: rem(20),
         xl: rem(24),
+        logo: rem(30),
     },
 
     components: {
