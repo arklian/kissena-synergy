@@ -1,11 +1,10 @@
 .page-container {
   box-sizing: border-box;
-  margin-top: var(--mantine-navbar-height);
   width: 100%;
-  padding: 0 70px;
+  padding: var(--mantine-navbar-height) 70px 0;
 
   @mixin smaller-than $mantine-breakpoint-md {
-    padding: 0 40px;
+    padding: var(--mantine-navbar-height) 40px 0;
   }
 }
 

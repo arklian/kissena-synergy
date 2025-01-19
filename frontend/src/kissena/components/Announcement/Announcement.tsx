@@ -3,7 +3,7 @@ import { Box, Button, Space, Stack, Text } from '@mantine/core'
 import { useMemo } from 'react'
 import { AnnouncementData } from '@/types';
 
-export function Announcement({title, datePosted, description, redirectUrl}:AnnouncementData) { 
+export function Announcement({title, datePosted, description, redirectUrl, id}:AnnouncementData) { 
     // Configure width of learn more button (and wrapper anchor tag)
     const buttonWidth = 120;
 
@@ -13,7 +13,7 @@ export function Announcement({title, datePosted, description, redirectUrl}:Annou
     }, [datePosted])
 
     return (
-        <Stack gap={0} pt={'lg'} pb={'xl'} className={styles.announcementContainer}>
+        <Stack gap={0} pt={'lg'} pb={'xl'} className={styles.announcementContainer} data-announcement-id={id}>
             <Text size='md' c="neonGreen.6" fw={700} lh={'1.2rem'} lineClamp={2}>{title}</Text>
             <Text size='md' c="neonGreen.9">{stringifiedDate}</Text>            
             {
