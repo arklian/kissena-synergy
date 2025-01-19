@@ -4,9 +4,13 @@ import { getAnnouncements } from "@/api/announcements";
 import { Stack, Text, Group, Divider, Box, ActionIcon, Button, Space, Skeleton, Loader } from "@mantine/core";
 import { HEROTEXT_OFFSET_X } from "@kissena/pages/home/Home.page";
 import styles from '@kissena/pages/home/AnnouncementBanner/Announcement.banner.module.css'
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
+import { ExternalLink } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export function AnnouncementBanner() {
+    const navigate = useNavigate();
+
     // Retrieve latest announcement
     const { data:announcement, isLoading, isError } = useQuery<AnnouncementData>({
         queryKey: ["latestAnnouncement"],
@@ -21,6 +25,12 @@ export function AnnouncementBanner() {
         return announcement.datePosted.toLocaleDateString('en-US')
     }, [announcement])
 
+    // Redirect users to the /announcements
+    const redirectToAnnouncements = useCallback(() => {
+        void navigate('/announcements') 
+    }, [navigate])
+
+    // Render content based on the state of information fetching
     const content = useMemo(() => {
         console.log(announcement);
         if (isError) {
@@ -41,7 +51,7 @@ export function AnnouncementBanner() {
                     <Text size="sm" lh={'1rem'}>{stringifiedDate}</Text>
                     <Text lineClamp={1} size="md" fw={700}>{announcement?.title ?? ""}</Text>
                 </Group>
-                <ActionIcon variant="outline" color="black">+</ActionIcon>
+                <Button onClick={() => redirectToAnnouncements()} variant="subtle" color="black" rightSection={<ExternalLink size={'24'} />}>View All</Button>
             </Box>
             <Stack hiddenFrom="sm" gap={0}>
                 <Text size="md">New Announcement</Text>
@@ -49,12 +59,12 @@ export function AnnouncementBanner() {
                     <Text lineClamp={2} size="md" fw={700}>{announcement?.title }</Text>
                     <Text size="md">{stringifiedDate}</Text>
                     <Space h={'sm'} />
-                    <Button w={200} color="darkGreen.6">View Announcement</Button>
+                    <Button onClick={() => redirectToAnnouncements()} variant="outline" color="black" rightSection={<ExternalLink size={'20'} />}>View All</Button>
                 </Box>
             </Stack>
         </>
         )
-    }, [announcement, isLoading, isError])
+    }, [announcement, isLoading, isError, stringifiedDate, redirectToAnnouncements])
 
     return (
         <Box mt={'md'} p={`1rem ${HEROTEXT_OFFSET_X}`} bg={"neonGreen.6"}>
