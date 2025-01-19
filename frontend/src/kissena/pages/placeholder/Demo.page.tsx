@@ -1,7 +1,3 @@
-
 export function DemoPage() {
-  return (
-    <>
-    </>
-  )
+  return <></>
 }

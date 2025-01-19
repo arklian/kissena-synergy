@@ -11,7 +11,6 @@ const MotionTitle = motion.create(Title)
 export const HEROTEXT_OFFSET_X = 100
 
 export function HomePage() {
-
   return (
     <>
       <Stack>
