@@ -58,7 +58,7 @@ export function Event({...props}:EventData) {
                             { endTime }
                         </Text>
                     </Group>
-                    <Title visibleFrom="md" order={2} c={"neonGreen.6"} lineClamp={3}>{props.title}</Title>
+                    <Title visibleFrom="md" lh={"2.25rem"} order={2} c={"neonGreen.6"} lineClamp={3}>{props.title}</Title>
                     <Title hiddenFrom="md" order={3} c={"neonGreen.6"} lineClamp={3}>{props.title}</Title>
                     <Text size="lg" c={"neonGreen.9"}>{props.location}</Text>
                     <Box flex={1}>
