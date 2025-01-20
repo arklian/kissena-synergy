@@ -13,13 +13,14 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './navbar.module.css';
-import { ChevronDown } from 'lucide-react';
-import logo from '@kissena/navbar/assets/logo.jpg';
+import { IconChevronDown } from '@tabler/icons-react';
+import logo from '@kissena/navbar/assets/logo.png';
+import kissenaName from '@kissena/navbar/assets/KissenaName.png';
 
 
 const links = [
   {
-    link: '',
+    link: 'www.facebook.com',
     label: 'Announcements',
   },
   {
@@ -47,6 +48,7 @@ export function NavBar() {
     if (link.subLinks) {
       return (
         <Menu
+        classNames={{'dropdown': classes.dropDownMenu}}
           key={link.label}
           position="bottom-start"
           trigger="click-hover"
@@ -60,7 +62,7 @@ export function NavBar() {
             <UnstyledButton className={classes.link}>
               <Center>
                 <Text className={classes.linkLabel}>{link.label}</Text>
-                <ChevronDown size="10px" stroke="1.5px" color= "#000000" />
+                <IconChevronDown size="30px" stroke="1.5px" color= '#FFF4B9' />
               </Center>
             </UnstyledButton>
           </Menu.Target>
@@ -87,7 +89,7 @@ export function NavBar() {
         href={link.link}
         className={classes.link}
       >
-        <Text size="xl">{link.label}</Text>
+        <Text size= "lg">{link.label}</Text>
       </UnstyledButton>
     ) : (
       <span key={link.label} className={classes.link}>
@@ -113,23 +115,15 @@ export function NavBar() {
                 className={classes.logoImage}
               />
               <div className={classes.logoText}>
-                <Text
-                  style={{ color: '#caff21' }}
-                  size="xl"
-                  fw={700}
-                >
-                  Kissena
-                </Text>
-                <Text
-                  style={{ color: '#f68522' }}
-                  size="xl"
-                  fw={700}
-                >
-                  Synergy
-                </Text>
+              <img
+                src ={kissenaName}
+                alt ="Kissena Synergy"
+                className={classes.nameImage}
+                />
+                
               </div>
             </UnstyledButton>
-
+            <Group justify = "space-between" align='center'>
             <Group gap={5} visibleFrom="sm">
               {items}
             </Group>
@@ -141,6 +135,7 @@ export function NavBar() {
               hiddenFrom="sm"
               color="var(--mantine-color-lightYellow-2)"
             />
+            </Group>
           </div>
 
           <Drawer
