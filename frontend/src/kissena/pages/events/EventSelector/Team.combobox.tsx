@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { ActionIcon, Box, Combobox, Divider, Group, Input, Pill, PillsInput, Portal, Stack, Text, useCombobox } from '@mantine/core';
+import { ActionIcon, Box, Combobox, Divider, Group, Input, Pill, PillsInput, Stack, Text, useCombobox } from '@mantine/core';
 import { EventSelectorContext } from '@kissena/pages/events/EventSelector';
 import { OptionData } from '@/types';
 import { allTeams } from '@kissena/pages/events/EventSelector';
@@ -51,11 +51,10 @@ export function TeamSelect() {
       <Combobox.DropdownTarget>
         <PillsInput variant='unstyled' p={"2 10"} pointer onClick={() => combobox.toggleDropdown()}>
           <Pill.Group >
-          <ActionIcon visibleFrom='sm' variant='light' ><ChevronDown /></ActionIcon>
             {values.length > 0 ? (
-                values
+              values
             ) : (
-                <Input.Placeholder>Pick one or more values</Input.Placeholder>
+              <Input.Placeholder>Pick one or more values</Input.Placeholder>
             )}
 
             <Combobox.EventsTarget>
@@ -64,6 +63,7 @@ export function TeamSelect() {
                 onBlur={() => combobox.closeDropdown()}
                 />
             </Combobox.EventsTarget>
+            <ActionIcon  variant='light' ><ChevronDown /></ActionIcon>
           </Pill.Group>
         </PillsInput>
       </Combobox.DropdownTarget>
