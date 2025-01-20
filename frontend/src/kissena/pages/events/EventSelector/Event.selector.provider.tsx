@@ -4,10 +4,17 @@ import { OptionData} from '@/types';
 
 
 export function EventSelectorProvider(props: PropsWithChildren) {
-    const [rangeStart, setRangeStart] = useState<Date>(new Date());
+    const [rangeStart, setRangeStart] = useState<Date>(
+        () =>  {
+            const date = new Date();
+            date.setHours(0,0,0,0);
+            return date;
+        }
+    );
     const [rangeEnd, setRangeEnd] = useState<Date>(
         () => {
             const date = new Date();
+            date.setHours(0,0,0,0);
             date.setDate(date.getDate() + 7);
             return date;
         }

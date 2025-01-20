@@ -57,7 +57,7 @@ const placeholder = [
 ]
 
 export function EventList() {
-    const {search} = useContext(EventSelectorContext);
+    const {search, selectedTeams, rangeStart, rangeEnd} = useContext(EventSelectorContext);
     const events:EventData[] = placeholder;
 
     const filtered = useMemo(() => {
@@ -65,7 +65,9 @@ export function EventList() {
             .filter((event) => 
                 event.title.toLowerCase().includes(search.toLowerCase()) || 
                 event.location.toLowerCase().includes(search.toLowerCase()))
-    }, [events, search])
+            .filter((event) => selectedTeams.map(option => option.team).includes(event.team))
+            .filter((event) => rangeStart <= event.date && event.date <= rangeEnd)
+    }, [events, selectedTeams, search, rangeStart, rangeEnd])
 
     console.log(filtered.length);
 
