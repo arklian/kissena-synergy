@@ -1,8 +1,9 @@
 import { useContext } from 'react';
-import { Combobox, Divider, Group, Input, Pill, PillsInput, Stack, Text, useCombobox } from '@mantine/core';
+import { ActionIcon, Box, Combobox, Divider, Group, Input, Pill, PillsInput, Portal, Stack, Text, useCombobox } from '@mantine/core';
 import { EventSelectorContext } from '@kissena/pages/events/EventSelector';
 import { OptionData } from '@/types';
 import { allTeams } from '@kissena/pages/events/EventSelector';
+import { ChevronDown } from 'lucide-react';
 
 function SelectOption({team, label, description}:OptionData) {
     const resolveColor = () => {
@@ -33,7 +34,7 @@ export function TeamSelect() {
   const options = allTeams.map((option:OptionData) => (
     <Combobox.Option 
     bd={"1px solid var(--mantine-color-darkGreen-4)"}
-    bg={selectedTeams.includes(option) ? "darkGreen.5" : "transparent"} my={5} value={option.team} key={option.team} active={selectedTeams.includes(option)}>
+    bg={selectedTeams.includes(option) ? "darkGreen.5" : "darkGreen.6"} my={5} value={option.team} key={option.team} active={selectedTeams.includes(option)}>
       <Group gap="sm" wrap='nowrap'>
         
         <SelectOption {...option} />
@@ -45,10 +46,12 @@ export function TeamSelect() {
     <Group gap={0}>
     <Text size='md' c={"neonGreen.6"}>Event Teams</Text>
     <Divider ml="xs" orientation='vertical' color="darkGreen.5" />
-    <Combobox width={"300"} store={combobox} onOptionSubmit={(selection:string) => toggleOption(allTeams.find(option => option.team === selection))} withinPortal={false}>
+    <Box w={{ base: 300, xs: 400, sm: 600, md: 800}} maw={800}>
+    <Combobox store={combobox} onOptionSubmit={(selection:string) => toggleOption(allTeams.find(option => option.team === selection))} withinPortal={false}>
       <Combobox.DropdownTarget>
         <PillsInput variant='unstyled' p={"2 10"} pointer onClick={() => combobox.toggleDropdown()}>
           <Pill.Group >
+          <ActionIcon visibleFrom='sm' variant='light' ><ChevronDown /></ActionIcon>
             {values.length > 0 ? (
                 values
             ) : (
@@ -69,6 +72,7 @@ export function TeamSelect() {
         <Combobox.Options>{options}</Combobox.Options>
       </Combobox.Dropdown>
     </Combobox>
+    </Box>
     </Group>
   );
 }

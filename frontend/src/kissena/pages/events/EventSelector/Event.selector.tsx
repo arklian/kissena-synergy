@@ -29,7 +29,7 @@ export function EventSelector() {
     }
 
     return (
-    <Group justify="space-between" p={"1rem"} align="flex-end">
+    <Group justify="space-between" p={"1rem"} align="flex-end" style={{ borderBottom: "1px solid var(--mantine-color-neonGreen-9)"}}>
         <Group align="flex-end">
             <Stack gap={0}>
             <Title order={4} c={"neonGreen.9"}>Events</Title>

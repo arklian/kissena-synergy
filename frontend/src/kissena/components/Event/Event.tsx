@@ -40,7 +40,7 @@ export function Event({...props}:EventData) {
     }
 
     return (
-        <Box className={styles.eventContainer} data-event-id={props.id}>
+        <Box bg={"darkGreen.6"} className={styles.eventContainer} data-event-id={props.id}>
         {/* Desktop Version */}
         <Group  h={"20rem"} w={"100%"} wrap="nowrap" visibleFrom="sm">
             {/* Padding-left != padding right; for visual balance. */}
