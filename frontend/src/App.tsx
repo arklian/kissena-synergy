@@ -1,16 +1,37 @@
-// Mantine Imports
-import { MantineProvider } from '@mantine/core'
-import '@mantine/core/styles.css'
-import Router from '@/Router'
+/*
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { MantineProvider } from '@mantine/core'; // Import MantineProvider
+import './index.css';
+import App from './App'; // Your main app component
 
-import { KissenaTheme } from '@/kissena/theme'
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 
-function App() {
-  return (
-    <MantineProvider theme={KissenaTheme}>
-      <Router />
+root.render(
+  <React.StrictMode>
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <App /> {/* Wrap your app with MantineProvider }
     </MantineProvider>
-  )
-}
+  </React.StrictMode>
+);
+*/
 
-export default App
+import React from 'react';
+import Header from './components/Header';
+import HeroSection from './components/HeroSection';
+import MissionSection from './components/MissionSection';
+import WhyKissenaSynergy from './components/WhyKissenaSynergy';
+import './App.css';
+
+const App: React.FC = () => {
+  return (
+    <div className="App">
+      <Header />
+      <HeroSection />
+      <MissionSection />
+      <WhyKissenaSynergy />
+    </div>
+  );
+};
+
+export default App;

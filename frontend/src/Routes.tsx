@@ -1,19 +1,21 @@
-import { KissenaRoutes } from '@kissena/Kissena.routes'
-import { HomePage } from '@kissena/pages/home/Home.page'
+// src/Routes.tsx
+import React from 'react';
+import { Route } from 'react-router-dom';
+import Information from '@kissena/pages/About/Information';  // Import Information component
+import HomePage from '@kissena/pages/home/Home.page';    // Correct import for Homepage
 
-const Routes = [
-  // Base path for hosting the kissena website
+// Define the routes
+export const KissenaRoutes = [
   {
     path: '/',
-    description: 'Home',
-    element: <HomePage />,
-    children: KissenaRoutes,
+    element: <HomePage />  // Use Homepage as the route element
+  },
+  {
+    path: '/about',
+    element: <Information />  // Information page route
   },
   {
     path: '*',
-    description: ' 404 Not Found',
-    element: <div>{'Whoops! 404!'}</div>,
-  },
-]
-
-export default Routes
+    element: <div>Whoops! 404!</div>  // Catch-all for undefined routes
+  }
+];
