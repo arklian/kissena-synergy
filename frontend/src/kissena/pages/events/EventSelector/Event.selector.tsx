@@ -1,15 +1,25 @@
-import { Popover, Button, Group, Title, Stack, Box, TextInput } from "@mantine/core";
+import {  Button, Group, Title, Stack, Text, TextInput, Drawer, Divider, Checkbox } from "@mantine/core";
 import { useContext, useState } from "react";
-import { EventSelectorContext } from "@kissena/pages/events/EventSelector";
-import { DatePicker } from '@mantine/dates';
-import { Calendar, Search } from 'lucide-react';
+import { allTeams, EventSelectorContext } from "@kissena/pages/events/EventSelector";
+import {  DatePicker } from '@mantine/dates';
+import {  Search, SlidersHorizontal } from 'lucide-react';
 import styles from '@kissena/pages/events/EventSelector/Event.selector.module.css'
-import { TeamSelect } from "./Team.combobox";
+import { useDisclosure } from "@mantine/hooks";
+import { OptionData } from "@/types";
+
+function SelectOptionMobile({label, description, color}:OptionData) {
+    return <Stack gap={0}>
+                <Text c={color} fw={700}>{label}</Text>
+                <Text size='sm'>{description}</Text>
+            </Stack>
+}
 
 export function EventSelector() {
-    const [ datePickerOpened, setDatePickerOpened] = useState(false);
+    const [opened, { open, close }] = useDisclosure(false);
+    const [searchBuffer, setSearchBuffer] = useState("");
+
     const [ selectedDate, setSelectedDate ] = useState<Date | null>(new Date());
-    const { rangeStart, rangeEnd, setDateRange, search, setSearch } = useContext(EventSelectorContext)
+    const { rangeStart, rangeEnd, setDateRange, setSearch, selectedTeams, toggleOption } = useContext(EventSelectorContext)
 
     const today = new Date();
     const dateOptions:Intl.DateTimeFormatOptions = {
@@ -29,40 +39,49 @@ export function EventSelector() {
     }
 
     return (
-    <Group justify="space-between" p={"1rem"} align="flex-end" style={{ borderBottom: "1px solid var(--mantine-color-neonGreen-9)"}}>
-        <Group align="flex-end">
-            <Stack gap={0}>
-            <Title order={4} c={"neonGreen.9"}>Events</Title>
-            <Title order={3} c="neonGreen.6">
-            {stringifyDate(rangeStart)} - {stringifyDate(rangeEnd)}
-            </Title>
+        <>
+            <Stack gap={0} pb={"lg"}>
+                <Title order={4} c={"neonGreen.9"}>Events</Title>
+                <Group justify="space-between">
+                    <Title order={3} c="neonGreen.6">{stringifyDate(rangeStart)} - {stringifyDate(rangeEnd)}</Title>
+                    <Button hiddenFrom="xs" miw={"10rem"} flex={1} variant="light" onClick={open} rightSection={<SlidersHorizontal size={20} />}>Filter Events</Button>
+                    <Button visibleFrom="xs" variant="light" onClick={open} rightSection={<SlidersHorizontal size={20} />}>Filter Events</Button>
+                </Group>
             </Stack>
-             <Popover width={300} trapFocus position="bottom" withArrow shadow="md" opened={datePickerOpened}>
-                <Popover.Target>
-                    <Button onClick={() => setDatePickerOpened(!datePickerOpened)} size={'sm'} rightSection={<Calendar size={"1.2rem"}/>} variant="light">Change Date</Button>
-                </Popover.Target>
-                <Popover.Dropdown onMouseLeave={() => setDatePickerOpened(false)}>
-                    <DatePicker classNames={{ "day" : styles.datePickerDay}} allowDeselect={false} defaultDate={new Date()} className={styles.datePickerDay}  value={selectedDate} onChange={
-                        (value) => {
-                            setSelectedDate(value);
-                            setDatePickerOpened(false);
-                            setDateRange(value ?? new Date());
-                        }} />
-                </Popover.Dropdown>
-            </Popover>
-        </Group>
-        <Box>
-            <TextInput
-            c="neonGreen.6"
-            leftSection={<Search size={16} />}
-            leftSectionPointerEvents="none"
-            label="Search Events"
-            placeholder="Search events..."
-            value={search}
-            onChange={(event) => setSearch(event.target.value)}
-            />
-        </Box>
-        <TeamSelect />
-    </Group>
+            <Drawer padding={"lg"} title={<Title c={"darkGreen.4"} order={3}>Filter Events</Title>} position="right" opened={opened} onClose={close} overlayProps={{ backgroundOpacity: 0.5, blur: 4 }}>
+                <Stack px={"1rem"}>
+                
+
+                <DatePicker size="lg" classNames={{ "day" : styles.datePickerDay}} allowDeselect={false} defaultDate={new Date()} className={styles.datePickerDay}  value={selectedDate} onChange={
+                    (value) => {
+                        setSelectedDate(value);
+                        setDateRange(value ?? new Date());
+                        close();
+                    }} />
+
+                <Divider />
+
+                <TextInput size="md" label="Search Events" placeholder="Search a title or location..." value={searchBuffer} onChange={(event) => setSearchBuffer(event.target.value)} leftSection={<Search size={15} />} />
+                <Button color="darkGreen.5" onClick={() => {setSearch(searchBuffer); close(); }}>Search</Button> 
+
+                <Divider />
+                <Title order={4} c="darkGreen.5">Event Teams</Title>
+                
+                <Stack gap={10}>
+                    {
+                        allTeams.map((teamOption:OptionData) => 
+                            <Checkbox 
+                            autoContrast 
+                            key={teamOption.team} 
+                            checked={selectedTeams.includes(teamOption)}
+                            onChange={() => toggleOption(teamOption)}
+                            label={<SelectOptionMobile  {...teamOption} />
+                        } />
+                    )}
+                </Stack>
+                <Button mt={"sm"} color={"darkGreen.5"} onClick={close}>Save</Button>
+                </Stack>
+            </Drawer>
+        </>
     )
 }
