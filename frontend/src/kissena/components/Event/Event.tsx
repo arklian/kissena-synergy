@@ -4,14 +4,14 @@ import { ExternalLink } from "lucide-react";
 import styles from "@kissena/components/Event/Event.module.css"
 
 export function Event({...props}:EventData) {
-    const fullDateOptions = {
+    const fullDateOptions:Intl.DateTimeFormatOptions = {
         weekday: "long",
         year: "numeric",
         month: "long",
         day: "numeric",
-    };
+    }
 
-    const timeOptions = {
+    const timeOptions:Intl.DateTimeFormatOptions = {
         hour: '2-digit',
         minute: '2-digit',
     };
@@ -23,11 +23,11 @@ export function Event({...props}:EventData) {
         ? props.startTime.toLocaleTimeString('en-US', timeOptions) 
         : undefined;
         
-    const endTime = props.endTime 
+        const endTime = props.endTime 
         ? " - " + props.endTime.toLocaleTimeString('en-US', timeOptions)
         : undefined;
-    
-    const dateExpanded = props.date.toLocaleDateString('en-US', fullDateOptions);
+        
+        const dateExpanded = props.date.toLocaleDateString('en-US', fullDateOptions);
 
     const resolveTeamColor = (team:KissenaTeam) => {
         switch(team) {
