@@ -1,7 +1,7 @@
 import { useContext, useMemo } from "react";
 import { EventSelectorContext } from "@kissena/pages/events/EventSelector";
 import { Event } from "@/kissena/components/Event/Event";
-import { Box, Container, Stack, Title } from "@mantine/core";
+import { Box, Stack, Title } from "@mantine/core";
 import { EventData, KissenaTeam } from "@/types";
 
 

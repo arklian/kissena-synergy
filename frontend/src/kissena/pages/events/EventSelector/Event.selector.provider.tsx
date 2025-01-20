@@ -1,6 +1,7 @@
 import { useState, PropsWithChildren } from 'react'
-import { EventSelectorContext } from '@kissena/pages/events/EventSelector'
-import { KissenaTeam } from '@/types';
+import { allTeams, EventSelectorContext } from '@kissena/pages/events/EventSelector'
+import { OptionData} from '@/types';
+
 
 export function EventSelectorProvider(props: PropsWithChildren) {
     const [rangeStart, setRangeStart] = useState<Date>(new Date());
@@ -14,20 +15,21 @@ export function EventSelectorProvider(props: PropsWithChildren) {
 
     const [search, setSearch] = useState<string>("");
 
-    const [selectedTeams, setSelectedTeams] = useState<KissenaTeam[]>(['green', 'orange', 'blue', 'partner']);
+    const [selectedTeams, setSelectedTeams] = useState<OptionData[]>(allTeams);
 
     // Add team if not in selected, otherwise remove
-    const toggleTeam = (team:KissenaTeam) => {
-        setSelectedTeams((current) =>
-            current.includes(team) 
-                ? current.filter((selected) => selected !== team) 
-                : [...current, team]
+    const toggleOption = (option:OptionData | undefined) => {
+        if (!option) return;
+        setSelectedTeams((current:OptionData[]) =>
+            current.includes(option) 
+                ? current.filter((selected) => selected !== option) 
+                : [...current, option]
         );
     }
 
     // Stricly remove the specified team
-    const removeTeam = (team:KissenaTeam) => {
-        setSelectedTeams((current) => current.filter((selected) => selected !== team));
+    const removeOption = (option:OptionData) => {
+        setSelectedTeams((current) => current.filter((selected:OptionData) => selected !== option));
     }
 
     // Move the date range window to a week following the parameter date 
@@ -40,7 +42,7 @@ export function EventSelectorProvider(props: PropsWithChildren) {
 
     return (
     <EventSelectorContext.Provider
-        value={{ rangeStart, rangeEnd, selectedTeams, setDateRange, toggleTeam, removeTeam, search, setSearch }}
+        value={{ rangeStart, rangeEnd, selectedTeams, setDateRange, toggleOption, removeOption, search, setSearch }}
     >
         {props.children}
     </EventSelectorContext.Provider>

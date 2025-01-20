@@ -1,5 +1,5 @@
 import { EventData, KissenaTeam } from "@/types";
-import { Group, Stack, Text, Title, Button, Box, Space } from "@mantine/core";
+import { Group, Stack, Text, Title, Button, Box } from "@mantine/core";
 import { ExternalLink } from "lucide-react";
 import styles from "@kissena/components/Event/Event.module.css"
 
@@ -40,9 +40,9 @@ export function Event({...props}:EventData) {
     }
 
     return (
-        <>
+        <Box className={styles.eventContainer} data-event-id={props.id}>
         {/* Desktop Version */}
-        <Group className={styles.eventContainer} h={"20rem"} w={"100%"} wrap="nowrap" visibleFrom="sm">
+        <Group  h={"20rem"} w={"100%"} wrap="nowrap" visibleFrom="sm">
             {/* Padding-left != padding right; for visual balance. */}
             <Stack h={"100%"} bg={resolveTeamColor(props.team)} w="auto" pl={"2rem"} pr={"2.3rem"} c={"lightYellow.1"} justify="center" align="center">
                 <Title order={2} fw={200} tt={"uppercase"}>{weekday}</Title>
@@ -112,6 +112,6 @@ export function Event({...props}:EventData) {
             </a>
             </Box>
         </Stack>
-        </>
+        </Box>
     )
 }

@@ -4,6 +4,7 @@ import { EventSelectorContext } from "@kissena/pages/events/EventSelector";
 import { DatePicker } from '@mantine/dates';
 import { Calendar, Search } from 'lucide-react';
 import styles from '@kissena/pages/events/EventSelector/Event.selector.module.css'
+import { TeamSelect } from "./Team.combobox";
 
 export function EventSelector() {
     const [ datePickerOpened, setDatePickerOpened] = useState(false);
@@ -28,7 +29,7 @@ export function EventSelector() {
     }
 
     return (
-    <Group justify="space-between" p={"1rem"}>
+    <Group justify="space-between" p={"1rem"} align="flex-end">
         <Group align="flex-end">
             <Stack gap={0}>
             <Title order={4} c={"neonGreen.9"}>Events</Title>
@@ -50,17 +51,18 @@ export function EventSelector() {
                 </Popover.Dropdown>
             </Popover>
         </Group>
-            <Box>
-                <TextInput
-                c="neonGreen.6"
-                leftSection={<Search size={16} />}
-                leftSectionPointerEvents="none"
-                label="Search Events"
-                placeholder="Search events..."
-                value={search}
-                onChange={(event) => setSearch(event.target.value)}
-                />
-            </Box>
+        <Box>
+            <TextInput
+            c="neonGreen.6"
+            leftSection={<Search size={16} />}
+            leftSectionPointerEvents="none"
+            label="Search Events"
+            placeholder="Search events..."
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+            />
+        </Box>
+        <TeamSelect />
     </Group>
     )
 }
