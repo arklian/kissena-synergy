@@ -1,4 +1,4 @@
-import { EventData } from "@/types/EventData";
+import { EventData, KissenaTeam } from "@/types";
 import { Group, Stack, Text, Title, Button, Box } from "@mantine/core";
 import { ExternalLink } from "lucide-react";
 
@@ -23,9 +23,19 @@ export function Event({...props}:EventData) {
     
     const dateExpanded = props.date.toLocaleDateString('en-US', fullDateOptions);
 
+    const resolveTeamColor = (team:KissenaTeam) => {
+        switch(team) {
+            case 'green': return "darkGreen.5"
+            case 'blue': return "blue.9"
+            case 'orange': return "neonOrange.9"
+            case 'partner': return "darkGreen.8"
+            default: return "darkGreen.8"
+        }
+    }
+
     return <Group h={"20rem"} w={"100%"} wrap="nowrap">
         {/* Padding-left != padding right; for visual balance. */}
-        <Stack h={"100%"} bg={"red"} w="auto" pl={"2rem"} pr={"2.3rem"} c={"neonGreen.6"} justify="center" align="center">
+        <Stack h={"100%"} bg={resolveTeamColor(props.team)} w="auto" pl={"2rem"} pr={"2.3rem"} c={"neonGreen.6"} justify="center" align="center">
             <Title order={2} fw={200} tt={"uppercase"}>{weekday}</Title>
             <Title order={1} >{dayNumber}</Title>
             <Text size="lg">{startTime}</Text>

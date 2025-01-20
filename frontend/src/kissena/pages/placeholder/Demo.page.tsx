@@ -11,7 +11,7 @@ export function DemoPage() {
   startTime={new Date()}
   endTime={new Date()}
 
-  team="partner"
+  team="green"
   partner="some-partner"
   learnMoreUrl="https://google.com"
   />

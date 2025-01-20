@@ -1,4 +1,4 @@
-import { KissenaTeam } from "./KissenaTeam";
+import { KissenaTeam } from "@/types/KissenaTeam";
 
 interface EventData {
     title:string,
