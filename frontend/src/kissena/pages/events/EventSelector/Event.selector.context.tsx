@@ -1,10 +1,10 @@
-import { OptionData } from '@/types'
+import { KissenaTeamOptionData } from '@/types'
 import { createContext } from 'react'
 
 export const EventSelectorContext = createContext({
   rangeStart: new Date(),
   rangeEnd: new Date(),
-  selectedTeams: [] as OptionData[],
+  selectedTeams: [] as KissenaTeamOptionData[],
 
   search: "",
   setSearch: (value:string) => {console.log(value); return; },
@@ -14,6 +14,6 @@ export const EventSelectorContext = createContext({
     return
   },
 
-  toggleOption: (option:OptionData|undefined) => { console.log(option); return; },
-  removeOption: (option:OptionData) => { console.log(option); return; }
+  toggleOption: (option:KissenaTeamOptionData|undefined) => { console.log(option); return; },
+  removeOption: (option:KissenaTeamOptionData) => { console.log(option); return; }
 })

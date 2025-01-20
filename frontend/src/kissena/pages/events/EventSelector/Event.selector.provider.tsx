@@ -1,6 +1,6 @@
 import { useState, PropsWithChildren } from 'react'
 import { allTeams, EventSelectorContext } from '@kissena/pages/events/EventSelector'
-import { OptionData} from '@/types';
+import { KissenaTeamOptionData} from '@/types';
 
 
 export function EventSelectorProvider(props: PropsWithChildren) {
@@ -22,12 +22,12 @@ export function EventSelectorProvider(props: PropsWithChildren) {
 
     const [search, setSearch] = useState<string>("");
 
-    const [selectedTeams, setSelectedTeams] = useState<OptionData[]>(allTeams);
+    const [selectedTeams, setSelectedTeams] = useState<KissenaTeamOptionData[]>(allTeams);
 
     // Add team if not in selected, otherwise remove
-    const toggleOption = (option:OptionData | undefined) => {
+    const toggleOption = (option:KissenaTeamOptionData | undefined) => {
         if (!option) return;
-        setSelectedTeams((current:OptionData[]) =>
+        setSelectedTeams((current:KissenaTeamOptionData[]) =>
             current.includes(option) 
                 ? current.filter((selected) => selected !== option) 
                 : [...current, option]
@@ -35,8 +35,8 @@ export function EventSelectorProvider(props: PropsWithChildren) {
     }
 
     // Stricly remove the specified team
-    const removeOption = (option:OptionData) => {
-        setSelectedTeams((current) => current.filter((selected:OptionData) => selected !== option));
+    const removeOption = (option:KissenaTeamOptionData) => {
+        setSelectedTeams((current) => current.filter((selected:KissenaTeamOptionData) => selected !== option));
     }
 
     // Move the date range window to a week following the parameter date 

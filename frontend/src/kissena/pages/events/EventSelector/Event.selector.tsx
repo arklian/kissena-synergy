@@ -5,9 +5,9 @@ import {  DatePicker } from '@mantine/dates';
 import {  Search, SlidersHorizontal } from 'lucide-react';
 import styles from '@kissena/pages/events/EventSelector/Event.selector.module.css'
 import { useDisclosure } from "@mantine/hooks";
-import { OptionData } from "@/types";
+import { KissenaTeamOptionData } from "@/types";
 
-function SelectOptionMobile({label, description, color}:OptionData) {
+function SelectOptionMobile({label, description, color}:KissenaTeamOptionData) {
     return <Stack gap={0}>
                 <Text c={color} fw={700}>{label}</Text>
                 <Text size='sm'>{description}</Text>
@@ -69,7 +69,7 @@ export function EventSelector() {
                 
                 <Stack gap={10}>
                     {
-                        allTeams.map((teamOption:OptionData) => 
+                        allTeams.map((teamOption:KissenaTeamOptionData) => 
                             <Checkbox 
                             autoContrast 
                             key={teamOption.team} 

@@ -1,6 +1,6 @@
-import { OptionData } from "@/types";
+import { KissenaTeamOptionData } from "@/types";
 
-export const allTeams:OptionData[] = [
+export const allTeams:KissenaTeamOptionData[] = [
     {
         team: 'green',
         label: 'Kissena Green',

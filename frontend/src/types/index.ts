@@ -1,6 +1,6 @@
 import { AnnouncementData } from './AnnouncementData'
 import { EventData } from './EventData'
 import { KissenaTeam } from './KissenaTeam'
-import { OptionData } from './OptionData'
+import { KissenaTeamOptionData } from './OptionData'
 
-export type { AnnouncementData, EventData, KissenaTeam, OptionData }
+export type { AnnouncementData, EventData, KissenaTeam, KissenaTeamOptionData }
