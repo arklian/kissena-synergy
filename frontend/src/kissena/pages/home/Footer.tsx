@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
-import { KissenaTheme } from '../../theme'
 import { FaFacebookF, FaInstagramSquare, FaInstagram } from 'react-icons/fa'
-import { Grid, Paper} from '@mantine/core'
-import {  TextInput } from '@mantine/core'
-import { data } from 'react-router-dom'
 import { Button, Text, Input, Title, Anchor, Group, Stack, useMantineTheme } from '@mantine/core'
-//import  { useState } from 'react';
+
 
 const links = [
     {
@@ -40,15 +36,15 @@ const links = [
 
 
     },
-
-   { link: '',
-        label: '',
-        sublinks: [
-            {link: '', label: ''},
-            {link: '', label: ''},
-            {link: '', label: ''}
-        ]
-   }
+    {
+    // link: '',
+    label: '',
+    sublinks: [
+        {link: '', label: ''},
+        {link: '', label: ''},
+        {link: '', label: ''}
+    ]
+    }
 ]
 
 
@@ -65,12 +61,13 @@ export const Footer = () => {
     setEmail(event.target.value)
     }
 const handleNotify = () => {
-    if(email.trim() === '' ) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if(email.trim() === '' || !emailRegex.test(email)) {
         setMessage("Invalid email address.")
         return;
     }
 
-    setMessage('Notification sen to ${email}')
+    setMessage('You have been Notified')
     setEmail('')
     
 }
@@ -80,9 +77,13 @@ const handleNotify = () => {
 return (
   <footer
     style={{
-      padding: '20px 40px',
+      //height: 180,
+      width: 1156,
+      //marginTop: 800,
+
+      padding: ' 25px',
       backgroundColor: '#0D1608',
-      color: '#FFF4B9',
+      
     }}
   >
     <Group spacing="xl" align="flex-start" grow>
@@ -99,22 +100,26 @@ return (
             value={email}
             onChange={handleEmailChange}
             style={{
-              color: '#FFF4B9',
+              backgroundColor: 'transparent',
+              color: '#0D1608',
               borderBottom: '1px solid #88F000',
               padding: '8px 12px',
-              width: '200px',
+              outline: 'none',
+              
             }}
           />
           <Button
             onClick={handleNotify}
             style={{
+              height: 45,
+              width: 110,
               backgroundColor: '#375421',
               color: '#B8F000',
-              padding: '10px 10px',
+             // padding: '0px 10px',
               borderRadius: '8px',
               fontWeight: 600,
               fontFamily: 'Open Sans, sans-serif',
-              fontSize: '16px',
+              fontSize: '16x',
               transition: '0.3s ease-in-out',
             }}
           >
@@ -124,60 +129,66 @@ return (
         {message && <Text color="red">{message}</Text>}
       </Stack>
 
-      {/* Social Media Section */}
-      <Stack style={{ flex: 0.5, alignItems: 'center' }}>
-        <Group style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-          <a
-            href="https://www.facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              fontFamily: 'Open Sans, sans-serif',
-              fontWeight: 600,
-              fontSize: '16px',
-              color: '#FFF4B9',
-              textDecoration: 'none',
-            }}
-          >
-            Facebook
-          </a>
-          <FaFacebookF style={{ color: '#B8F000', fontSize: '24px' }} />
-        </Group>
-        <Group style={{ alignItems: 'center' }}>
-          <a
-            href="https://www.instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              fontFamily: 'Open Sans, sans-serif',
-              fontWeight: 600,
-              fontSize: '16px',
-              color: '#FFF4B9',
-              textDecoration: 'none',
-            }}
-          >
-            Instagram
-          </a>
-          <FaInstagramSquare style={{ color: '#B8F000', fontSize: '24px' }} />
-        </Group>
-      </Stack>
+     {/* Social Media Section */}
+<Stack style={{ flex: 0.2, alignItems: 'center', padding:'20px' }}>
+  <Group style={{ justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+    <a
+      href="https://www.facebook.com/kissenasynergy/"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        fontFamily: 'Open Sans, sans-serif',
+        fontWeight: 600,
+        fontSize: '16px',
+        color: '#FFF4B9',
+        textDecoration: 'none',
+        textAlign: 'left',
+      }}
+    >
+      Facebook
+    </a>
+    <FaFacebookF style={{ color: '#B8F000', fontSize: '40px' }} />
+  </Group>
+  <Group style={{ justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+    <a
+      href="https://www.instagram.com"
+      rel="noopener noreferrer"
+      style={{
+        fontFamily: 'Open Sans, sans-serif',
+        fontWeight: 600,
+        fontSize: '16px',
+        color: '#FFF4B9',
+        textDecoration: 'none',
+        textAlign: 'left',
+      }}
+    >
+      Instagram
+    </a>
+    <FaInstagramSquare style={{ color: '#B8F000', fontSize: '40px' }} />
+  </Group>
+</Stack>
 
       {/* Links Section */}
-      <Group style={{ flex: 2, justifyContent: 'space-between' }}>
+      <Group style={{ flex: 2,
+        alignItems: 'flex-start'
+      }}>
         {links.map((section, index) => (
           <Stack key={index} style={{ textAlign: 'left' }}>
             <Title
               order={4}
               style={{
-                fontSize: '14px',
+                fontSize: '20px',
                 color: '#B8F000',
                 fontWeight: 'bold',
+                textDecoration: 'underline',
+                  margin: '-5px',
               }}
             >
               {section.label}
             </Title>
             <ul
               style={{
+                padding: 0,
                 listStyleType: 'none',
                 paddingLeft: 0,
                 margin: 0,
@@ -188,7 +199,8 @@ return (
                   <Anchor
                     href={sublink.link}
                     style={{
-                      fontSize: '12px',
+                     
+                      fontSize: '15px',
                       color: '#FFF4B9',
                     }}
                   >
