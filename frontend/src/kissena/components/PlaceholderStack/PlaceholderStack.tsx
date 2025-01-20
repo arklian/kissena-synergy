@@ -1,6 +1,6 @@
 import { Stack, Skeleton } from '@mantine/core'
 
-export function PlaceholderAnnouncements({ hidden }: { hidden: boolean }) {
+export function PlaceholderStack({ hidden }: { hidden: boolean }) {
   return (
     <Stack>
       {Array.from(Array(5)).map((elem, index) => {

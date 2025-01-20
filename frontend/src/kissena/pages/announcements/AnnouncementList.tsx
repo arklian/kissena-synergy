@@ -9,7 +9,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { getAnnouncements } from '@api/announcements'
 import { AnnouncementData } from '@/types'
 import { ErrorBlurb } from '@/kissena/components/ErrorBlurb/ErrorBlurb'
-import { PlaceholderAnnouncements } from '@kissena/pages/announcements/PlaceholderAnnouncements'
+import { PlaceholderStack } from '@/kissena/components/PlaceholderStack/PlaceholderStack'
 
 // Component for the list of announcements & the pagination control
 export function AnnouncementList() {
@@ -30,7 +30,7 @@ export function AnnouncementList() {
   // Render list of announcements, if possible
   const content = useMemo(() => {
     if (isLoading) {
-      return <PlaceholderAnnouncements hidden={!isLoading} />
+      return <PlaceholderStack hidden={!isLoading} />
     }
     if (isError) {
       return <ErrorBlurb />

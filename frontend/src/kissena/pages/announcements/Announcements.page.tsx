@@ -7,7 +7,6 @@ import { useQuery } from '@tanstack/react-query'
 import { getAnnouncementCount } from '@api/announcements'
 import { ErrorBlurb } from '@/kissena/components/ErrorBlurb/ErrorBlurb'
 import { AnnouncementList } from '@kissena/pages/announcements/AnnouncementList'
-import styles from '@kissena/pages/announcements/Announcement.module.css'
 import { AddAnnouncementPane } from '@kissena/pages/announcements/AddAnnouncementPane'
 
 // Component for the page content
@@ -34,8 +33,6 @@ export function AnnouncementsPage() {
     <>
       <Modal
         size={'lg'}
-        classNames={{ header: styles.mantineModalHeader }}
-        className={styles.mantineModalHeader}
         opened={opened}
         onClose={close}
         title="Create Announcement"
