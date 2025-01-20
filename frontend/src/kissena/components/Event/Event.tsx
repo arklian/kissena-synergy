@@ -44,7 +44,7 @@ export function Event({...props}:EventData) {
         {/* Desktop Version */}
         <Group className={styles.eventContainer} h={"20rem"} w={"100%"} wrap="nowrap" visibleFrom="sm">
             {/* Padding-left != padding right; for visual balance. */}
-            <Stack h={"100%"} bg={resolveTeamColor(props.team)} w="auto" pl={"2rem"} pr={"2.3rem"} c={"neonGreen.6"} justify="center" align="center">
+            <Stack h={"100%"} bg={resolveTeamColor(props.team)} w="auto" pl={"2rem"} pr={"2.3rem"} c={"lightYellow.1"} justify="center" align="center">
                 <Title order={2} fw={200} tt={"uppercase"}>{weekday}</Title>
                 <Title order={1} >{dayNumber}</Title>
                 <Text size="lg">{startTime}</Text>
@@ -82,7 +82,7 @@ export function Event({...props}:EventData) {
         {/* Mobile Version */}
         <Stack className={styles.eventContainer}  p={"1rem"} pb={"1.2rem"} hiddenFrom="sm">
             <Group gap={"1rem"} wrap="nowrap" align="flex-start">
-                <Stack w={"5.5rem"} h={"5.5rem"} gap={0} bg={resolveTeamColor(props.team)} c={"neonGreen.6"} justify="center" align="center">
+                <Stack w={"5.5rem"} h={"5.5rem"} gap={0} bg={resolveTeamColor(props.team)} c={"lightYellow.1"} justify="center" align="center">
                     <Title order={3} fw={200} tt={"uppercase"}>{weekday}</Title>
                     <Title order={2} >{dayNumber}</Title>
                 </Stack>

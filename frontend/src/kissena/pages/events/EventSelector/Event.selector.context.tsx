@@ -6,6 +6,9 @@ export const EventSelectorContext = createContext({
   rangeEnd: new Date(),
   selectedTeams: [] as KissenaTeam[],
 
+  search: "",
+  setSearch: (value:string) => {console.log(value); return; },
+
   setDateRange: (d:Date) => {
     console.log(d);
     return

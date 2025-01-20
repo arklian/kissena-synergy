@@ -1,14 +1,14 @@
-import { Popover, Button, Group, Title, Stack } from "@mantine/core";
+import { Popover, Button, Group, Title, Stack, Box, TextInput } from "@mantine/core";
 import { useContext, useState } from "react";
 import { EventSelectorContext } from "@kissena/pages/events/EventSelector";
 import { DatePicker } from '@mantine/dates';
-import { Calendar } from 'lucide-react';
+import { Calendar, Search } from 'lucide-react';
 import styles from '@kissena/pages/events/EventSelector/Event.selector.module.css'
 
 export function EventSelector() {
     const [ datePickerOpened, setDatePickerOpened] = useState(false);
     const [ selectedDate, setSelectedDate ] = useState<Date | null>(new Date());
-    const { rangeStart, rangeEnd, setDateRange } = useContext(EventSelectorContext)
+    const { rangeStart, rangeEnd, setDateRange, search, setSearch } = useContext(EventSelectorContext)
 
     const today = new Date();
     const dateOptions:Intl.DateTimeFormatOptions = {
@@ -38,7 +38,7 @@ export function EventSelector() {
             </Stack>
              <Popover width={300} trapFocus position="bottom" withArrow shadow="md" opened={datePickerOpened}>
                 <Popover.Target>
-                    <Button onClick={() =>  setDatePickerOpened(true)} size={'sm'} rightSection={<Calendar size={"1.2rem"}/>} variant="light">Change Date</Button>
+                    <Button onClick={() => setDatePickerOpened(!datePickerOpened)} size={'sm'} rightSection={<Calendar size={"1.2rem"}/>} variant="light">Change Date</Button>
                 </Popover.Target>
                 <Popover.Dropdown onMouseLeave={() => setDatePickerOpened(false)}>
                     <DatePicker classNames={{ "day" : styles.datePickerDay}} allowDeselect={false} defaultDate={new Date()} className={styles.datePickerDay}  value={selectedDate} onChange={
@@ -50,6 +50,17 @@ export function EventSelector() {
                 </Popover.Dropdown>
             </Popover>
         </Group>
+            <Box>
+                <TextInput
+                c="neonGreen.6"
+                leftSection={<Search size={16} />}
+                leftSectionPointerEvents="none"
+                label="Search Events"
+                placeholder="Search events..."
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+                />
+            </Box>
     </Group>
     )
 }

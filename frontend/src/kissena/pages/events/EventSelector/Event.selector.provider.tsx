@@ -12,6 +12,8 @@ export function EventSelectorProvider(props: PropsWithChildren) {
         }
     );
 
+    const [search, setSearch] = useState<string>("");
+
     const [selectedTeams, setSelectedTeams] = useState<KissenaTeam[]>(['green', 'orange', 'blue', 'partner']);
 
     // Add team if not in selected, otherwise remove
@@ -38,7 +40,7 @@ export function EventSelectorProvider(props: PropsWithChildren) {
 
     return (
     <EventSelectorContext.Provider
-        value={{ rangeStart, rangeEnd, selectedTeams, setDateRange, toggleTeam, removeTeam }}
+        value={{ rangeStart, rangeEnd, selectedTeams, setDateRange, toggleTeam, removeTeam, search, setSearch }}
     >
         {props.children}
     </EventSelectorContext.Provider>

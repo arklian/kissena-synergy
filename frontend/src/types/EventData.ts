@@ -1,6 +1,7 @@
 import { KissenaTeam } from "@/types/KissenaTeam";
 
 interface EventData {
+    id:string,
     title:string,
     location:string,
     description?:string,
