@@ -44,19 +44,19 @@ const neonOrange: MantineColorsTuple = [
 /**
  * Defines the shades for the background green
  * Base Color: Index 6
- * Light Color: Index 5
+ * Light Color: Index 4
  */
 const darkGreen: MantineColorsTuple = [
   '#f3f9f1',
   '#c8e0bf',
   '#badead',
   '#a8d099',
-  '#8dc279',
-  '#7cb964',
-  '#0D1608',
   '#375421',
-  '#224017',
-  '#102608',
+  '#213814',
+  '#0D1608',
+  '#080f04',
+  '#050a02',
+  '#030800',
 ]
 
 /**
@@ -123,8 +123,8 @@ export const KissenaTheme = createTheme({
         lineHeight: rem(60),
       },
       h2: {
-        fontSize: rem(48),
-        lineHeight: rem(44),
+        fontSize: rem(32),
+        lineHeight: rem(30),
       },
     },
   },
@@ -161,7 +161,7 @@ export const KissenaTheme = createTheme({
   },
 })
 
-export const resolver: CSSVariablesResolver = (theme) => ({
+export const KissenaCSSResolver: CSSVariablesResolver = (theme) => ({
   variables: {
     '--mantine-border-radius': theme.other.standardBorderRadius as string,
     '--mantine-navbar-height': theme.other.navBarHeight as string,
