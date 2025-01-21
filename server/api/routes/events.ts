@@ -9,13 +9,14 @@ import {
 
 const eventsRouter = Router();
 
-// GET: /events/{entryCount}/{offset}/{startDate}/{endDate (optional)}
+// GET: /events/all/{entryCount}/{offset}
 // Gets n = <entryCount> events between the start & end dates (inclusive) after the k = <offset> events in the range
-// If no end date is provided, fetches the first <entryCount> events on or after the startDate
-eventsRouter.get("/:entryCount/:offset/:startDate/:endDate?", getEvents);
+// where the start & end dates are provided in the request body
+eventsRouter.get("/all/:entryCount/:offset", getEvents);
 
-// GET: /events/count/{startDate}/{endDate}
+// GET: /events/count
 // Retrieves the count of all events made between the start & end dates (inclusive)
+// where the start & end dates are provided in the request body
 eventsRouter.get("/count", getEventCount);
 
 // POST: /events/post/{eventId}

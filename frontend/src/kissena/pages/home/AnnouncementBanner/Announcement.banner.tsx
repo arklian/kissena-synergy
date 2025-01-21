@@ -13,10 +13,13 @@ import {
 } from '@mantine/core'
 import { HEROTEXT_OFFSET_X } from '@kissena/pages/home/Home.page'
 import styles from '@kissena/pages/home/AnnouncementBanner/Announcement.banner.module.css'
-import { useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import { ExternalLink } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 export function AnnouncementBanner() {
+  const navigate = useNavigate()
+
   // Retrieve latest announcement
   const {
     data: announcement,
@@ -36,6 +39,11 @@ export function AnnouncementBanner() {
     }
     return announcement.datePosted.toLocaleDateString('en-US')
   }, [announcement])
+
+  // Redirect users to the /announcements
+  const redirectToAnnouncements = useCallback(() => {
+    void navigate('/announcements')
+  }, [navigate])
 
   // Render content based on the state of information fetching
   const content = useMemo(() => {
@@ -67,8 +75,7 @@ export function AnnouncementBanner() {
             </Text>
           </Group>
           <Button
-            component="a"
-            href="/announcements"
+            onClick={() => redirectToAnnouncements()}
             variant="subtle"
             color="black"
             rightSection={<ExternalLink size={'24'} />}
@@ -85,8 +92,7 @@ export function AnnouncementBanner() {
             <Text size="md">{stringifiedDate}</Text>
             <Space h={'sm'} />
             <Button
-              component="a"
-              href="/announcements"
+              onClick={() => redirectToAnnouncements()}
               variant="outline"
               color="black"
               rightSection={<ExternalLink size={'20'} />}
@@ -97,7 +103,13 @@ export function AnnouncementBanner() {
         </Stack>
       </>
     )
-  }, [announcement, isLoading, isError, stringifiedDate])
+  }, [
+    announcement,
+    isLoading,
+    isError,
+    stringifiedDate,
+    redirectToAnnouncements,
+  ])
 
   return (
     <Box mt={'md'} p={`1rem ${HEROTEXT_OFFSET_X}`} bg={'neonGreen.6'}>
