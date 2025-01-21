@@ -1,7 +1,6 @@
 import styles from '@kissena/pages/home/Home.module.css'
 import Swiggle from '@kissena/pages/home/assets/swiggle.svg'
-import { Stack, Image, Title, Group, Text, Box } from '@mantine/core'
-
+import { Stack, Image, Title, Group, Text, Box, Divider } from '@mantine/core'
 import { motion } from 'motion/react'
 import { AnnouncementBanner } from '@kissena/pages/home/AnnouncementBanner/Announcement.banner'
 import { EventCarousel } from './EventCarousel/Event.carousel'
@@ -75,9 +74,9 @@ export function HomePage() {
             'magna id habitant hac cras laoreet.'}
         </Text>
         <AnnouncementBanner />
-        <Box px={HEROTEXT_OFFSET_X}>
+        <Divider color={"neonGreen.6"} />
+        <Box px={{ xs: 0, sm: HEROTEXT_OFFSET_X / 2, md: HEROTEXT_OFFSET_X}}>
           <EventCarousel />
-
         </Box>
       </Stack>
     </>

@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Box, Stack, Title } from "@mantine/core";
+import { Button, Divider, Group, Stack, Title } from "@mantine/core";
 import { EventData } from "@/types";
 import { useQueryClient, useQuery } from "@tanstack/react-query";
 import { getEvents } from "@/api/events";
@@ -20,13 +20,6 @@ export function EventCarousel() {
         return getEvents(0,6, new Date())
       },
     });
-
-    const noEventsFoundMessage = useMemo(() => {
-      return <Stack mt={"10rem"} justify="center" align="center" >
-              <Title c="neonGreen.7" >Whoops!</Title>
-              <Title order={2} c="neonGreen.9">Looks like we could not find any events.</Title>
-            </Stack>
-    }, [])
     
     const content = useMemo(() => {
         if (isLoading) { return <PlaceholderStack hidden={!isLoading} /> }
@@ -55,5 +48,12 @@ export function EventCarousel() {
         )
     }, [events, isLoading, isError])
 
-    return <Box className=''>{content}</Box>
+    return <Stack id="event-carousel-container" mt={"xl"}>
+
+      <Group justify='space-between'>
+        <Title order={2} c="neonGreen.6" mb={"md"}>Upcoming Events</Title>
+        <Button size='md' href="/events" component="a" variant='light'>See More</Button>
+      </Group>
+      {content}
+    </Stack>
 }
