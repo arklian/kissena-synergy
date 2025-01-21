@@ -5,7 +5,7 @@ import {
 } from '@/kissena/components/Pagination'
 import { Stack, Portal, Affix } from '@mantine/core'
 import { useContext, useEffect, useMemo } from 'react'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { getAnnouncements } from '@api/announcements'
 import { AnnouncementData } from '@/types'
 import { ErrorBlurb } from '@/kissena/components/ErrorBlurb/ErrorBlurb'
@@ -13,7 +13,6 @@ import { PlaceholderStack } from '@/kissena/components/PlaceholderStack/Placehol
 
 // Component for the list of announcements & the pagination control
 export function AnnouncementList() {
-  const queryClient = useQueryClient()
   const { activePage, ENTRIES_PER_PAGE } = useContext(PaginationContext)
 
   // Fetch list of announcements
@@ -52,7 +51,7 @@ export function AnnouncementList() {
   // Refetch new announcements when page changes
   useEffect(() => {
     refetch().catch((err) => console.error(err))
-  }, [activePage, queryClient, refetch])
+  }, [activePage, refetch])
 
   return (
     <Stack>

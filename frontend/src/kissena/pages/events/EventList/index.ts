@@ -1,2 +1,2 @@
-import { EventList } from "./Event.list";
-export {EventList};
+import { EventList } from './Event.list'
+export { EventList }

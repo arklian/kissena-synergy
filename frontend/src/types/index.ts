@@ -5,5 +5,12 @@ import { KissenaTeam, kissenaTeamValues } from './KissenaTeam'
 import { KissenaTeamOptionData } from './OptionData'
 import { EventResponse } from './EventResponse'
 
-export type { AnnouncementData, EventData, KissenaTeam, KissenaTeamOptionData, EventResponse, AnnouncementResponse };
-export { kissenaTeamValues };
+export type {
+  AnnouncementData,
+  EventData,
+  KissenaTeam,
+  KissenaTeamOptionData,
+  EventResponse,
+  AnnouncementResponse,
+}
+export { kissenaTeamValues }

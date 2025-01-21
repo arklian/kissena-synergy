@@ -6,14 +6,23 @@ export const EventSelectorContext = createContext({
   rangeEnd: new Date(),
   selectedTeams: [] as KissenaTeamOptionData[],
 
-  search: "",
-  setSearch: (value:string) => {console.log(value); return; },
-
-  setDateRange: (d:Date) => {
-    console.log(d);
+  search: '',
+  setSearch: (value: string) => {
+    console.log(value)
     return
   },
 
-  toggleOption: (option:KissenaTeamOptionData|undefined) => { console.log(option); return; },
-  removeOption: (option:KissenaTeamOptionData) => { console.log(option); return; }
+  setDateRange: (d: Date) => {
+    console.log(d)
+    return
+  },
+
+  toggleOption: (option: KissenaTeamOptionData | undefined) => {
+    console.log(option)
+    return
+  },
+  removeOption: (option: KissenaTeamOptionData) => {
+    console.log(option)
+    return
+  },
 })

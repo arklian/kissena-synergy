@@ -74,8 +74,8 @@ export function HomePage() {
             'magna id habitant hac cras laoreet.'}
         </Text>
         <AnnouncementBanner />
-        <Divider color={"neonGreen.6"} />
-        <Box px={{ xs: 0, sm: HEROTEXT_OFFSET_X / 2, md: HEROTEXT_OFFSET_X}}>
+        <Divider color={'neonGreen.6'} />
+        <Box px={{ xs: 0, sm: HEROTEXT_OFFSET_X / 2, md: HEROTEXT_OFFSET_X }}>
           <EventCarousel />
         </Box>
       </Stack>

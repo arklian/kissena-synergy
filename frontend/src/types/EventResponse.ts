@@ -1,15 +1,15 @@
 export interface EventResponse {
-    id:string,
-    title:string,
-    location:string,
-    description?:string,
-    
-    date:string,
-    startTime?:string,
-    endTime?:string,
+  id: string
+  title: string
+  location: string
+  description?: string
 
-    team:string,
-    partner?:string,
+  date: string
+  startTime?: string
+  endTime?: string
 
-    learnMoreUrl?:string
+  team: string
+  partner?: string
+
+  learnMoreUrl?: string
 }

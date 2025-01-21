@@ -1,19 +1,19 @@
-import { KissenaTeam } from "@/types/KissenaTeam";
+import { KissenaTeam } from '@/types/KissenaTeam'
 
 interface EventData {
-    id:string,
-    title:string,
-    location:string,
-    description?:string,
-    
-    date:Date,
-    startTime?:Date,
-    endTime?:Date,
+  id: string
+  title: string
+  location: string
+  description?: string
 
-    team:KissenaTeam,
-    partner?:string,
+  date: Date
+  startTime?: Date
+  endTime?: Date
 
-    learnMoreUrl?:string
+  team: KissenaTeam
+  partner?: string
+
+  learnMoreUrl?: string
 }
 
-export type { EventData };
+export type { EventData }

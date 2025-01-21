@@ -1,9 +1,9 @@
 .date-picker-day {
-    &[data-selected] {
-        color: black;
-    }
+  &[data-selected] {
+    color: black;
+  }
 
-    &[data-today] {
-        border: 2px solid var(--mantine-color-gray-2);
-    }
+  &[data-today] {
+    border: 2px solid var(--mantine-color-gray-2);
+  }
 }

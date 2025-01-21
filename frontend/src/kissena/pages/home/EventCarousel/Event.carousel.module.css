@@ -1,15 +1,15 @@
 .indicatorButtons {
-    background-color: var(--mantine-color-neonGreen-7);
-    transform: translateY(40px);
-    opacity: 0.2;
-    &[data-active] {
-        opacity: 1;
-    }
+  background-color: var(--mantine-color-neonGreen-7);
+  transform: translateY(40px);
+  opacity: 0.2;
+  &[data-active] {
+    opacity: 1;
+  }
 }
 
 .control {
-    &[data-inactive] {
-        opacity: 0;
-        cursor: pointer;
-    }
+  &[data-inactive] {
+    opacity: 0;
+    cursor: pointer;
+  }
 }
