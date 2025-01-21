@@ -1,28 +1,29 @@
-// Defines all /announcements routes
-import { Router } from "express";
+import { Router, Request, Response, NextFunction } from "express";
 import {
-  getAnnouncements,
-  getAnnouncementCount,
-  upsertAnnouncement,
-  deleteAnnouncement,
-} from "@functions/announcements";
+  getEvents,
+  getEventCount,
+  upsertEvent,
+  deleteEvent,
+} from "@functions/events";
 
-const announcementsRouter = Router();
+const eventsRouter = Router();
 
-// GET: /announcements/latest/{offset}/{entryCount}
-// Gets the <entryCount>th most recent announcements, offset by <offset>
-announcementsRouter.get("/latest/:offset/:entryCount", getAnnouncements);
+// Deals with the function type mismatch ("No overload matches this call")
+const asyncHandler = (fn: (req: Request, res: Response, next: NextFunction) => Promise<any>) => 
+  (req: Request, res: Response, next: NextFunction) => {
+    Promise.resolve(fn(req, res, next)).catch(next);
+  };
 
-// GET: /announcements/count
-// Retrieves the count of all announcements made
-announcementsRouter.get("/count", getAnnouncementCount);
+// GET: /events/all/{entryCount}/{offset}
+eventsRouter.get("/all/:entryCount/:offset", asyncHandler(getEvents));
 
-// POST: /announcements/post
-// Upserts an announcement specified by the post id in the request body
-announcementsRouter.post("/post", upsertAnnouncement);
+// GET: /events/count
+eventsRouter.get("/count", asyncHandler(getEventCount));
 
-// DELETE: /announcements/delete
-// Deletes the announcement specified by the postId in the request body
-announcementsRouter.delete("/delete", deleteAnnouncement);
+// POST: /events/post/{eventId}
+eventsRouter.post("/post/:eventId", asyncHandler(upsertEvent));
 
-export default announcementsRouter;
+// DELETE: /events/delete/{eventId}
+eventsRouter.delete("/delete/:eventId", asyncHandler(deleteEvent));
+
+export default eventsRouter;

@@ -1,5 +1,4 @@
-// Defines all /events routes
-import { Router } from "express";
+import { Router, Request, Response, NextFunction } from "express";
 import {
   getEvents,
   getEventCount,
@@ -9,23 +8,22 @@ import {
 
 const eventsRouter = Router();
 
+// Deals with the function type mismatch ("No overload matches this call")
+const asyncHandler = (fn: (req: Request, res: Response, next: NextFunction) => Promise<any>) => 
+  (req: Request, res: Response, next: NextFunction) => {
+    Promise.resolve(fn(req, res, next)).catch(next);
+  };
+
 // GET: /events/all/{entryCount}/{offset}
-// Gets n = <entryCount> events between the start & end dates (inclusive) after the k = <offset> events in the range
-// where the start & end dates are provided in the request body
-eventsRouter.get("/all/:entryCount/:offset", getEvents);
+eventsRouter.get("/all/:entryCount/:offset", asyncHandler(getEvents));
 
 // GET: /events/count
-// Retrieves the count of all events made between the start & end dates (inclusive)
-// where the start & end dates are provided in the request body
-eventsRouter.get("/count", getEventCount);
+eventsRouter.get("/count", asyncHandler(getEventCount));
 
 // POST: /events/post/{eventId}
-// Upserts the post specified by the request id
-// Uses the data provided by the request body.
-eventsRouter.post("/post/:eventId", upsertEvent);
+eventsRouter.post("/post/:eventId", asyncHandler(upsertEvent));
 
 // DELETE: /events/delete/{eventId}
-// Deletes the event specified by the eventId
-eventsRouter.delete("/delete/:eventId", deleteEvent);
+eventsRouter.delete("/delete/:eventId", asyncHandler(deleteEvent));
 
 export default eventsRouter;
