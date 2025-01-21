@@ -15,7 +15,7 @@ export function EventList() {
     const {search, selectedTeams, rangeStart, rangeEnd} = useContext(EventSelectorContext);
 
     // Fetch list of announcements
-    const { data:events, isLoading, isError, refetch } = useQuery<EventData[]>({
+    const { data:events, isLoading, isError } = useQuery<EventData[]>({
       queryKey: ['events'],
       queryFn: () => {
         return getEvents(

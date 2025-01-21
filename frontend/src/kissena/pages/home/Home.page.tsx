@@ -1,9 +1,10 @@
 import styles from '@kissena/pages/home/Home.module.css'
 import Swiggle from '@kissena/pages/home/assets/swiggle.svg'
-import { Stack, Image, Title, Group, Text } from '@mantine/core'
+import { Stack, Image, Title, Group, Text, Box } from '@mantine/core'
 
 import { motion } from 'motion/react'
 import { AnnouncementBanner } from '@kissena/pages/home/AnnouncementBanner/Announcement.banner'
+import { EventCarousel } from './EventCarousel/Event.carousel'
 
 // Create a motion-supported variant of Mantine components
 const MotionTitle = motion.create(Title)
@@ -74,6 +75,10 @@ export function HomePage() {
             'magna id habitant hac cras laoreet.'}
         </Text>
         <AnnouncementBanner />
+        <Box px={HEROTEXT_OFFSET_X}>
+          <EventCarousel />
+
+        </Box>
       </Stack>
     </>
   )
