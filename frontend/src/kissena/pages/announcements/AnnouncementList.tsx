@@ -53,6 +53,7 @@ export function AnnouncementList() {
     refetch().catch((err) => console.error(err))
   }, [activePage, refetch])
 
+
   return (
     <Stack>
       {content}
