@@ -1,5 +1,22 @@
 import { Request, Response } from "express";
 
+require('dotenv').config();
+
+const { Pool } = require('pg');
+
+const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
+
+const pool = new Pool({
+  host: PGHOST,
+  database: PGDATABASE,
+  username: PGUSER,
+  password: PGPASSWORD,
+  port: 5432,
+  ssl: {
+    require: true,
+  },
+});
+
 const sampleAnnouncements = [
    {
     id: crypto.randomUUID(),
@@ -71,12 +88,24 @@ const sampleAnnouncements = [
 ];
 
 // Used for GET: /announcements/latest/{offset}/{entryCount}
-export function getAnnouncements(req: Request, res: Response) {
-
+export async function getAnnouncements(req: Request, res: Response) {
   const { offset, entryCount } = req.params;
-  const start = parseInt(offset);
-  const end = start + parseInt(entryCount);
-
-  console.log(sampleAnnouncements.slice(start, end));
-  res.send(sampleAnnouncements.slice(start, end));
+  const client = await pool.connect();
+  
+  try {
+    const query = `
+      SELECT id, name, description, dataPosted, redirect_url 
+      FROM announcements 
+      ORDER BY datePosted DESC
+      LIMIT $1 OFFSET $2
+    `;
+    const values = [entryCount, offset];
+    const result = await client.query(query, values);
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error fetching announcements:', error);
+    res.status(500).json({ error: 'Failed to fetch announcements' });
+  } finally {
+    client.release();
+  }
 }

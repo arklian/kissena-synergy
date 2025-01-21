@@ -22,7 +22,9 @@
   "description": "The backend server for running Kissena Synergy's website.",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pg": "^8.13.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
@@ -33,7 +35,8 @@
     "globals": "^15.14.0",
     "module-alias": "^2.2.3",
     "prettier": "^3.4.2",
+    "prisma": "^6.2.1",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.20.0"
+    "typescript-eslint": "^8.21.0"
   }
 }
