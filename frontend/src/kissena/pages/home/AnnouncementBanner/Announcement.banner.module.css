@@ -1,0 +1,8 @@
+.banner-container {
+  display: grid;
+  grid-template-columns: auto 2px 1fr auto;
+  grid-template-areas: 'label divider content redirect';
+  gap: 1rem;
+
+  align-items: center;
+}
