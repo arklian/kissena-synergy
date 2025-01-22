@@ -27,7 +27,7 @@ export function ResourceModal({
   }, [tags])
 
   return (
-    <Stack gap={10}>
+    <Stack gap={10} data-resource-id={id}>
       <Group gap={'xs'}>
         {renderedTags}
         {tags.size === 0 ?
