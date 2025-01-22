@@ -11,9 +11,13 @@ interface ResourceListProps {
 export function ResourceList({ resources, selectedTagIds }: ResourceListProps) {
   const filtered = useMemo(() => {
     return resources.filter((resource: ResourceData) => {
-      if (selectedTagIds.size === 0) { return true; }
+      if (selectedTagIds.size === 0) {
+        return true
+      }
       for (const tag of resource.tags) {
-        if (selectedTagIds.has(tag.id)) { return true }
+        if (selectedTagIds.has(tag.id)) {
+          return true
+        }
       }
       return false
     })

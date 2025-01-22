@@ -51,7 +51,15 @@ export function ResourceCard({
   }, [tags])
 
   return (
-    <Stack flex={1} bd={"1px solid var(--mantine-color-darkGreen-5)"} h={height} miw={width} p={'2rem'} bg={'lightYellow.0'} gap={8}>
+    <Stack
+      flex={1}
+      bd={'1px solid var(--mantine-color-darkGreen-5)'}
+      h={height}
+      miw={width}
+      p={'2rem'}
+      bg={'lightYellow.0'}
+      gap={8}
+    >
       <Box component="div" h={'auto'} mah={'4.8rem'}>
         <Title order={4}>{title}</Title>
       </Box>

@@ -5,5 +5,5 @@ import { TagData } from '@/types'
 export function getTags(): Promise<TagData[]> {
   return axios
     .get<TagData[]>(`${HOSTNAME}/resources/tags`)
-        .then((res) => res.data)
+    .then((res) => res.data)
 }
