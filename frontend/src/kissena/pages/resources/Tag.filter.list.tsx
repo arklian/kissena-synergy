@@ -40,7 +40,7 @@ export function FilterList({ tags, selectedTagIds, setSelectedTagIds }: FilterLi
   })
 
   return <Stack gap={7}>
-    <Button onClick={() => setSelectedTagIds(new Set([]))} w={"100%"} color='darkGreen.4'>Reset Filters</Button>
+    <Button disabled={selectedTagIds.size === 0} onClick={() => setSelectedTagIds(new Set([]))} w={"100%"} color='darkGreen.4'>Reset Filters</Button>
     {content}
   </Stack>
 }

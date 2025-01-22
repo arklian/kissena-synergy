@@ -2,8 +2,12 @@ import { PageContainer } from '@/kissena/components/PageContainer/PageContainer'
 import { FilterList } from '@kissena/pages/resources/Tag.filter.list'
 import { ResourceList } from '@kissena/pages/resources/Resource.list'
 import { useState } from 'react'
-import { Grid, Space, Title } from '@mantine/core'
-import { ResourceData, ResourceResponse, TagData } from '@/types'
+import { Button, Drawer, Grid, Group, Text, Title } from '@mantine/core'
+import { TagData } from '@/types'
+import { useDisclosure } from '@mantine/hooks'
+import styles from '@kissena/pages/resources/Resource.module.css'
+import { Filter } from 'lucide-react'
+
 
 const sampleTags = [
   { id: 't1', title: 'JavaScript', color: '#f0db4f' },
@@ -261,29 +265,43 @@ const sampleResources = unparsedResources.map(resource => ({
 
 
 export function ResourcePage() {
+  const [opened, {open, close}] = useDisclosure(false);
+
   const resources = sampleResources
   const [selectedTagIds, setSelectedTagIds] = useState<Set<string>>(new Set());
 
   return (
     <PageContainer wide>
       <Grid>
-        <Grid.Col span={2} />
-        <Grid.Col span={10}>
+      <Grid.Col span={{ base: 12, md: 10 }}>
+        <Group justify='space-between'>
           <Title c='darkGreen.5' order={2}>Resources</Title>
-
-        </Grid.Col>
-        <Grid.Col span={2}>
+          <Button size='md' leftSection={<Filter size={15} />} onClick={open} hiddenFrom='md' color={'darkGreen.4'}>Filters</Button>
+        </Group>
+      </Grid.Col>
+      <Grid.Col span={2} visibleFrom='md' />
+      <Grid.Col span={{ base: 12, md: 10 }}>
+        <ResourceList resources={resources} selectedTagIds={selectedTagIds} />
+      </Grid.Col>
+      <Grid.Col span={2} visibleFrom='md'>
           <FilterList
             tags={sampleTags}
             selectedTagIds={selectedTagIds}
             setSelectedTagIds={setSelectedTagIds}
           />
         </Grid.Col>
-
-      <Grid.Col span={10}>
-        <ResourceList resources={resources} selectedTagIds={selectedTagIds} />
-      </Grid.Col>
       </Grid>
+      <Drawer
+      className={styles.drawer}
+      classNames={{ header: styles.drawer, content: styles.drawer }}
+        overlayProps={{ backgroundOpacity: 0.5, blur: 4 }}
+       position='right' title={<Text>Edit Tags</Text>} opened={opened} onClose={close}>
+        <FilterList
+            tags={sampleTags}
+            selectedTagIds={selectedTagIds}
+            setSelectedTagIds={setSelectedTagIds}
+          />
+      </Drawer>
     </PageContainer>
   )
 }
