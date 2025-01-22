@@ -1,5 +1,4 @@
-// Defines all /events routes
-import { Router } from "express";
+import { Router, Request, Response, NextFunction } from "express";
 import {
   getResources,
   getTags,
@@ -11,33 +10,32 @@ import {
 
 const resourcesRouter = Router();
 
+// Deals with the function type mismatch ("No overload matches this call")
+const asyncHandler = (fn: (req: Request, res: Response, next: NextFunction) => Promise<any>) => 
+  (req: Request, res: Response, next: NextFunction) => {
+    Promise.resolve(fn(req, res, next)).catch(next);
+  };
+
 // GET: /resources
-// Retrieves a list of all resource information
-resourcesRouter.get("/", getResources);
+resourcesRouter.get("/", asyncHandler(getResources));
 
 // POST: /resources/upsert/{resourceId}
-// Adds or updates a resource
-resourcesRouter.post("/upsert/:resourceId", upsertResource);
+resourcesRouter.post("/upsert/:resourceId", asyncHandler(upsertResource));
 
 // DELETE: /resources/delete/{resourceId}
-// Deletes a specific resource by its ID
-resourcesRouter.delete("/delete/:resourceId", deleteResource);
+resourcesRouter.delete("/delete/:resourceId", asyncHandler(deleteResource));
 
 // Setup routes for /resources/tags
-
 const tagsRouter = Router();
 
 // GET: /resources/tags
-// Retrieves a list of all the tags available that can be used to categorize resources
-tagsRouter.get("/", getTags);
+tagsRouter.get("/", asyncHandler(getTags));
 
 // POST: /resources/tags/upsert/{tagId}
-// Adds or updates a tag
-tagsRouter.post("/upsert/:tagId", upsertTag);
+tagsRouter.post("/upsert/:tagId", asyncHandler(upsertTag));
 
 // DELETE: /resources/tags/delete/{tagId}
-// Deletes a specific tag by its ID
-tagsRouter.delete("/delete/:tagId", deleteTag);
+tagsRouter.delete("/delete/:tagId", asyncHandler(deleteTag));
 
 resourcesRouter.use("/tags", tagsRouter);
 
