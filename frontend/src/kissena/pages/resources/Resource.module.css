@@ -23,3 +23,8 @@ body {
 .resource-modal {
   background-color: var(--mantine-color-lightYellow-0);
 }
+
+.wrap-button {
+  text-align: left;
+  white-space: wrap;
+}

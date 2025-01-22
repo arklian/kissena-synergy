@@ -2,7 +2,7 @@ import { PageContainer } from '@/kissena/components/PageContainer/PageContainer'
 import { FilterList } from '@kissena/pages/resources/Tag.filter.list'
 import { ResourceList } from '@kissena/pages/resources/Resource.list'
 import { useState } from 'react'
-import { Grid, Title } from '@mantine/core'
+import { Grid, Space, Title } from '@mantine/core'
 import { ResourceData, ResourceResponse, TagData } from '@/types'
 
 const sampleTags = [
@@ -266,8 +266,12 @@ export function ResourcePage() {
 
   return (
     <PageContainer wide>
-      <Title order={2}></Title>
       <Grid>
+        <Grid.Col span={2} />
+        <Grid.Col span={10}>
+          <Title c='darkGreen.5' order={2}>Resources</Title>
+
+        </Grid.Col>
         <Grid.Col span={2}>
           <FilterList
             tags={sampleTags}
