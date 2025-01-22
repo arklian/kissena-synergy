@@ -13,11 +13,11 @@ export function PlaceholderStack({
 }: PlaceholderStackProps) {
   return (
     <Stack>
-      {Array.from(Array(entries ?? 5)).map((elem, index) => {
+      {Array.from(Array(entries ?? 5)).map((elem:number) => {
         return (
           <Skeleton
             hidden={hidden ?? false}
-            key={index}
+            key={elem}
             h={200}
             opacity={opacity ?? 0.1}
           />

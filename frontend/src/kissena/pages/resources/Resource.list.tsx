@@ -1,6 +1,6 @@
 import { ResourceData } from '@/types'
 import { useMemo } from 'react'
-import { Group } from '@mantine/core'
+import { Group, Title } from '@mantine/core'
 import { ResourceCard } from './Resource.card'
 
 interface ResourceListProps {
@@ -30,6 +30,7 @@ export function ResourceList({ resources, selectedTagIds }: ResourceListProps) {
       {filtered.map((resource: ResourceData) => (
         <ResourceCard {...resource} key={resource.id} />
       ))}
+      <Title c={"neonGreen.9"} order={3} hidden={filtered.length !== 0}>No resources found.</Title>
     </Group>
   )
 }
