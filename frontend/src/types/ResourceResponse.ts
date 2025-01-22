@@ -1,5 +1,5 @@
 interface ResourceResponse {
-  id:string,
+  id: string
   title: string
   description?: string
   tagIds: string[]

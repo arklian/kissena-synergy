@@ -1,5 +1,5 @@
 interface TagResponse {
-  id:string,
+  id: string
   title: string
   color?: string
 }

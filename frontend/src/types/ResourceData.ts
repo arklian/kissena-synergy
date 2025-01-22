@@ -1,10 +1,10 @@
 import { TagData } from './TagData'
 
 interface ResourceData {
-  id:string,
+  id: string
   title: string
   description?: string
-  tags: TagData[]
+  tags: Set<TagData>
   link: string
 }
 

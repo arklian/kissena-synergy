@@ -21,7 +21,7 @@ export type {
   ResourceResponse,
   TagData,
   TagResponse,
-  UnlinkedResource
+  UnlinkedResource,
 }
 
 export { kissenaTeamValues }

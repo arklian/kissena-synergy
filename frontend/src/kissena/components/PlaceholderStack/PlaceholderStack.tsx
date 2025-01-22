@@ -1,8 +1,8 @@
 import { Stack, Skeleton } from '@mantine/core'
 
 interface PlaceholderStackProps {
-  hidden:boolean,
-  entries?:number
+  hidden: boolean
+  entries?: number
 }
 
 export function PlaceholderStack({ hidden, entries }: PlaceholderStackProps) {

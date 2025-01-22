@@ -1,7 +1,5 @@
-import { TagData } from './TagData'
-
 interface UnlinkedResource {
-  id:string,
+  id: string
   title: string
   description?: string
   tagIds: string[]

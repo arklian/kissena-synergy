@@ -1,5 +1,5 @@
 interface TagData {
-  id:string,
+  id: string
   title: string
   color?: string
 }
