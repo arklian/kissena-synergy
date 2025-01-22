@@ -1,11 +1,11 @@
 import { TagData } from './TagData'
 
-interface ResourceData {
+interface UnlinkedResource {
   id:string,
   title: string
   description?: string
-  tags: TagData[]
+  tagIds: string[]
   link: string
 }
 
-export type { ResourceData }
+export type { UnlinkedResource }

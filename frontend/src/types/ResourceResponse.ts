@@ -1,7 +1,8 @@
 interface ResourceResponse {
+  id:string,
   title: string
   description?: string
-  tags: string[]
+  tagIds: string[]
   link: string
 }
 

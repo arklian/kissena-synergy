@@ -8,6 +8,7 @@ import { ResourceData } from './ResourceData'
 import { ResourceResponse } from './ResourceResponse'
 import { TagData } from './TagData'
 import { TagResponse } from './TagResponse'
+import { UnlinkedResource } from './UnlinkedResource'
 
 export type {
   AnnouncementData,
@@ -20,6 +21,7 @@ export type {
   ResourceResponse,
   TagData,
   TagResponse,
+  UnlinkedResource
 }
 
 export { kissenaTeamValues }

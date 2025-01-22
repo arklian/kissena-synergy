@@ -1,0 +1,17 @@
+.resource-body {
+    position: relative;
+    &::after {
+        content: ' ';
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        height: 0.75rem;
+        opacity: 0.8;
+        background: transparent;
+        background: linear-gradient(to top, var(--mantine-color-lightYellow-0),transparent); 
+    }
+}
+
+.resource-modal {
+    background-color: var(--mantine-color-lightYellow-0);
+}
