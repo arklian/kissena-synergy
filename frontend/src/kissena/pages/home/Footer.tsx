@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaFacebookF, FaInstagramSquare, FaInstagram } from 'react-icons/fa'
+import { FaFacebookF, FaInstagramSquare, FaInstagram, FaFacebookSquare } from 'react-icons/fa'
 import { Button, Text, Input, Title, Anchor, Group, Stack, useMantineTheme } from '@mantine/core'
 
 
@@ -77,18 +77,18 @@ const handleNotify = () => {
 return (
   <footer
     style={{
-      //height: 180,
+      
       width: 1156,
-      //marginTop: 800,
+      
 
       padding: ' 25px',
       backgroundColor: '#0D1608',
       
     }}
   >
-    <Group spacing="xl" align="flex-start" grow>
+    <Group align="flex-start" grow>
       {/* Newsletter Section */}
-      <Stack spacing="sm" style={{ flex: 1 }}>
+      <Stack style={{ flex: 1 }}>
         <Text style={{ fontSize: '16px', color: '#FFF4B9' }}>
           Join our weekly newsletter to stay up-to-date with resources &
           opportunities to get involved
@@ -147,7 +147,7 @@ return (
     >
       Facebook
     </a>
-    <FaFacebookF style={{ color: '#B8F000', fontSize: '40px' }} />
+    <FaFacebookSquare style={{ color: '#B8F000', fontSize: '30px' }} />
   </Group>
   <Group style={{ justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
     <a
@@ -164,7 +164,7 @@ return (
     >
       Instagram
     </a>
-    <FaInstagramSquare style={{ color: '#B8F000', fontSize: '40px' }} />
+    <FaInstagramSquare style={{ color: '#B8F000', fontSize: '30px' }} />
   </Group>
 </Stack>
 
