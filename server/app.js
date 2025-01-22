@@ -15,6 +15,8 @@ const pool = new Pool({
   },
 });
 
+
+
 async function getPgVersion() {
   const client = await pool.connect();
   try {
