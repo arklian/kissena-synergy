@@ -1,11 +1,10 @@
-// src/Router.tsx
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { KissenaRoutes } from './Routes';  // Import the route array
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Routes from './Routes'
 
-const kissenaRouter = createBrowserRouter(KissenaRoutes);  // Pass the routes array here
+const kissenaRouter = createBrowserRouter(Routes)
 
 function Router() {
-  return <RouterProvider router={kissenaRouter} />;  // Provide the router to the app
+  return <RouterProvider router={kissenaRouter} />
 }
 
-export default Router;
+export default Router
