@@ -8,13 +8,14 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, 'src/'),
       '@kissena': path.resolve(__dirname, 'src/kissena'),
+      '@api': path.resolve(__dirname, 'src/api'),
       '@admin': path.resolve(__dirname, 'src/admin'),
     },
   },
   css: {
     modules: {
-      localsConvention: 'camelCase'
-    }
+      localsConvention: 'camelCase',
+    },
   },
   plugins: [react()],
 })

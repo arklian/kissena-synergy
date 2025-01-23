@@ -1,0 +1,5 @@
+# Ignore build folder:
+dist
+
+# Ignore package lock file
+pnpm-lock.yaml

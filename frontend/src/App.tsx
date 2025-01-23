@@ -1,37 +1,28 @@
-/*
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { MantineProvider } from '@mantine/core'; // Import MantineProvider
-import './index.css';
-import App from './App'; // Your main app component
+// Mantine Imports
+import { MantineProvider } from '@mantine/core'
+import '@mantine/core/styles.css'
+import '@mantine/dates/styles.css'
+import '@mantine/carousel/styles.css'
 
-const root = ReactDOM.createRoot(document.getElementById('root')!);
+import { KissenaTheme, KissenaCSSResolver } from '@/kissena/theme'
+import '@kissena/theme.module.css'
 
-root.render(
-  <React.StrictMode>
-    <MantineProvider withGlobalStyles withNormalizeCSS>
-      <App /> {/* Wrap your app with MantineProvider }
-    </MantineProvider>
-  </React.StrictMode>
-);
-*/
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import Router from '@/Router'
 
-import React from 'react';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import MissionSection from './components/MissionSection';
-import WhyKissenaSynergy from './components/WhyKissenaSynergy';
-import './App.css';
+const queryClient = new QueryClient()
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div className="App">
-      <Header />
-      <HeroSection />
-      <MissionSection />
-      <WhyKissenaSynergy />
-    </div>
-  );
-};
+    <QueryClientProvider client={queryClient}>
+      <MantineProvider
+        theme={KissenaTheme}
+        cssVariablesResolver={KissenaCSSResolver}
+      >
+        <Router />
+      </MantineProvider>
+    </QueryClientProvider>
+  )
+}
 
-export default App;
+export default App
