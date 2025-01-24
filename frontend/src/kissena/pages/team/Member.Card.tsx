@@ -3,12 +3,9 @@ import { Title, Text, Grid, Card, Stack, Box, Image, Container } from '@mantine/
 
 export default function TeamSection() {
   const teamMembers = [
-    { name: "", title: "", image:''},
-    { name: "", title: "", image: '' },
-    { name: "", title: "", image: '' },
-    { name: "", title: "", image: '' },
-    { name: "", title: "", image: '' },
-    { name: "", title: "", image: ''}
+    { name: "Leona Chin", title: "", image:''},
+    { name: "Alexandra Wong", title: "Mentor", image: '' },
+    { name: "Feron Daniel", title: "Board Member", image: '' },
   ];
 
   return (
