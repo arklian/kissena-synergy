@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaInstagramSquare, FaFacebookSquare } from 'react-icons/fa'
-import { Button, Text, Input, Title, Anchor, Group, Stack, useMantineTheme } from '@mantine/core'
+import { Button, Text, Input, Title, Anchor, Group, Stack } from '@mantine/core'
 
 
 const links = [
@@ -35,7 +35,6 @@ const links = [
 
 
 export const Footer = () => {
-    const theme = useMantineTheme()
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
 
@@ -52,7 +51,6 @@ export const Footer = () => {
     setMessage('You have been Notified')
     setEmail('')
   }
-
 
   return (
     <footer
