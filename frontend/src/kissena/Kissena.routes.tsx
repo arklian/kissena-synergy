@@ -24,10 +24,9 @@ export const KissenaRoutes = [
     element: <EventsPage />,
   },
   {
-
     path: 'team',
     description: 'Meet the team',
-  element: <TeamSection /> 
+    element: <TeamSection />
   },
   {
     path: 'about',

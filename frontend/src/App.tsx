@@ -22,7 +22,7 @@ function App() {
         cssVariablesResolver={KissenaCSSResolver}
       >
         <NavBar />
-          <Outlet />
+        <Outlet />
         <Router />
       </MantineProvider>
     </QueryClientProvider>
