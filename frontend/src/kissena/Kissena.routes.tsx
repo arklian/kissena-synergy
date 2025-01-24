@@ -13,7 +13,6 @@ export const KissenaRoutes = [
     description: 'Home',
     element: <HomePage />,
   },
-
   {
     path: 'announcements',
     description: 'Announcements',

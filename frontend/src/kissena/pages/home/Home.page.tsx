@@ -2,6 +2,8 @@ import styles from '@kissena/pages/home/Home.module.css'
 import Swiggle from '@kissena/pages/home/assets/swiggle.svg'
 import { Stack, Image, Title, Group, Text, Box, Divider } from '@mantine/core'
 import { motion } from 'motion/react'
+import { Footer } from './Footer'
+
 import { AnnouncementBanner } from '@kissena/pages/home/AnnouncementBanner/Announcement.banner'
 import { EventCarousel } from './EventCarousel/Event.carousel'
 
@@ -79,6 +81,8 @@ export function HomePage() {
           <EventCarousel />
         </Box>
       </Stack>
+      <Footer />
     </>
+    
   )
 }
