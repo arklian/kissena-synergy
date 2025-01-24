@@ -1,21 +1,5 @@
 import { Request, Response } from "express";
-
-require('dotenv').config();
-
-const { Pool } = require('pg');
-
-const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
-
-const pool = new Pool({
-  host: PGHOST,
-  database: PGDATABASE,
-  username: PGUSER,
-  password: PGPASSWORD,
-  port: 5432,
-  ssl: {
-    require: true,
-  },
-});
+import {pool} from "@api/functions/auth/auth";
 
 // Used for DELETE: /resources/delete/{resourceId}
 export async function deleteResource(req: Request, res: Response) {

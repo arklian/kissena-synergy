@@ -1,21 +1,6 @@
 import { Request, Response } from "express";
+import {pool} from "@api/functions/auth/auth";
 
-require('dotenv').config();
-
-const { Pool } = require('pg');
-
-const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
-
-const pool = new Pool({
-  host: PGHOST,
-  database: PGDATABASE,
-  username: PGUSER,
-  password: PGPASSWORD,
-  port: 5432,
-  ssl: {
-    require: true,
-  },
-});
 // Used for POST: /resources/upsert/{resourceId}
 export async function upsertResource(req: Request, res: Response) {
   const { resourceId } = req.params;

@@ -1,22 +1,5 @@
 import { Request, Response } from "express";
-
-require('dotenv').config();
-
-const { Pool } = require('pg');
-
-const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
-
-const pool = new Pool({
-  host: PGHOST,
-  database: PGDATABASE,
-  username: PGUSER,
-  password: PGPASSWORD,
-  port: 5432,
-  ssl: {
-    require: true,
-  },
-});
-
+import {pool} from "@api/functions/auth/auth";
 const sampleAnnouncements = [
    {
     id: crypto.randomUUID(),
@@ -94,7 +77,7 @@ export async function getAnnouncements(req: Request, res: Response) {
   
   try {
     const query = `
-      SELECT id, name, description, dataPosted, redirect_url 
+      SELECT id, title, dataPosted, description, redirect_url 
       FROM announcements 
       ORDER BY datePosted DESC
       LIMIT $1 OFFSET $2

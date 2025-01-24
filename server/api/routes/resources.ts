@@ -5,7 +5,7 @@ import {
   upsertResource,
   upsertTag,
   deleteResource,
-  deleteTag,
+  // deleteTag,
 } from "@functions/resources";
 
 const resourcesRouter = Router();
@@ -35,7 +35,7 @@ tagsRouter.get("/", asyncHandler(getTags));
 tagsRouter.post("/upsert/:tagId", asyncHandler(upsertTag));
 
 // DELETE: /resources/tags/delete/{tagId}
-tagsRouter.delete("/delete/:tagId", asyncHandler(deleteTag));
+// tagsRouter.delete("/delete/:tagId", asyncHandler(deleteTag));
 
 resourcesRouter.use("/tags", tagsRouter);
 

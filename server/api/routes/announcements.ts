@@ -1,12 +1,12 @@
 import { Router, Request, Response, NextFunction } from "express";
 import {
-  getEvents,
-  getEventCount,
-  upsertEvent,
-  deleteEvent,
-} from "@functions/events";
+  getAnnouncements,
+  getAnnouncementCount,
+  upsertAnnouncement,
+  deleteAnnouncement,
+} from "@functions/announcements";
 
-const eventsRouter = Router();
+const announcementsRouter = Router();
 
 // Deals with the function type mismatch ("No overload matches this call")
 const asyncHandler = (fn: (req: Request, res: Response, next: NextFunction) => Promise<any>) => 
@@ -14,16 +14,16 @@ const asyncHandler = (fn: (req: Request, res: Response, next: NextFunction) => P
     Promise.resolve(fn(req, res, next)).catch(next);
   };
 
-// GET: /events/all/{entryCount}/{offset}
-eventsRouter.get("/all/:entryCount/:offset", asyncHandler(getEvents));
+// GET: /announcement/latest/{entryCount}/{offset}
+announcementsRouter.get("/latest/:entryCount/:offset", asyncHandler(getAnnouncements));
 
 // GET: /events/count
-eventsRouter.get("/count", asyncHandler(getEventCount));
+announcementsRouter.get("/count", asyncHandler(getAnnouncementCount));
 
-// POST: /events/post/{eventId}
-eventsRouter.post("/post/:eventId", asyncHandler(upsertEvent));
+// POST: /announcement/post/{eventId}
+announcementsRouter.post("/post/:eventId", asyncHandler(upsertAnnouncement));
 
 // DELETE: /events/delete/{eventId}
-eventsRouter.delete("/delete/:eventId", asyncHandler(deleteEvent));
+announcementsRouter.delete("/delete/:eventId", asyncHandler(deleteAnnouncement));
 
-export default eventsRouter;
+export default announcementsRouter;
