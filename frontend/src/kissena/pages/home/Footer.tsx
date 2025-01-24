@@ -23,7 +23,7 @@ const links = [
     ]
   },
   {
-    link: '/resources',
+    // link: '',
     label: 'Resources',
     sublinks: [
       { link: '', label: '' },
@@ -55,12 +55,15 @@ export const Footer = () => {
   return (
     <footer
       style={{
-        width: 1156,
-        padding: ' 25px',
+        display: 'flex',
+        justifyContent: 'center',
+        width: '100vw',
+        paddingTop: '25px',
+        borderTop: '1px solid #609D37',
         backgroundColor: '#0D1608'
       }}
     >
-      <Group align="flex-start" grow>
+      <Group justify="center" align="center" grow>
         {/* Newsletter Section */}
         <Stack style={{ flex: 1 }}>
           <Text style={{ fontSize: '16px', color: '#FFF4B9' }}>
