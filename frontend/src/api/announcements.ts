@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { HOSTNAME } from './config'
-import { AnnouncementData } from '@/types'
-import { AnnouncementResponse } from '@/types/AnnouncementResponse'
+import { AnnouncementData, AnnouncementResponse } from '@/types'
 
 export function getAnnouncementCount(): Promise<number> {
   return axios
