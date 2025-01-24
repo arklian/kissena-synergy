@@ -20,7 +20,7 @@ import kissenaName from '@kissena/navbar/assets/KissenaName.png';
 
 const links = [
   {
-    link: 'www.facebook.com',
+    link: '/announcements',
     label: 'Announcements',
   },
   {
