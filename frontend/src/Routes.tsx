@@ -3,7 +3,6 @@ import { RouteObject } from 'react-router-dom';
 import Information from '@kissena/pages/About/Information'; // Import Information component
 import HomePage from '@kissena/pages/home/Home.page'; // Correct import for Homepage
 
-
 // Define the routes
 export const KissenaRoutes: RouteObject[] = [
   {

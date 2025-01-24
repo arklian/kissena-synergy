@@ -1,11 +1,14 @@
 import React from 'react';
-import { KissenaTheme } from './theme'; 
+import { KissenaTheme } from './theme';
 import './theme.module.css';
 import logo from './logo1.png';
 
+
+
+
 const Header: React.FC = () => {
   return (
-    <header 
+    <header
       className="header"
       style={{
         display: 'flex',
@@ -14,6 +17,7 @@ const Header: React.FC = () => {
         padding: '10px 20px',
         backgroundColor: '#0D1608',
         borderBottom: `1px solid ${KissenaTheme.colors.neonGreen[7] || '#609D37'}`,
+
 
       }}
     >
@@ -32,5 +36,6 @@ const Header: React.FC = () => {
     </header>
   );
 };
+
 
 export default Header;

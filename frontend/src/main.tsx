@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { MantineProvider } from '@mantine/core';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Router from './Router';
-import { KissenaTheme } from './kissena/components/theme';  // Correct path to theme.ts
+import { KissenaTheme } from './kissena/components/theme';
 
-const root = ReactDOM.createRoot(document.getElementById('root')!);  // Get the root element
 
-root.render(
+const queryClient = new QueryClient();
+
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <MantineProvider theme={KissenaTheme} withGlobalStyles withNormalizeCSS>
-      <Router /> {/* Router will load individual pages like Information */}
-    </MantineProvider>
+    <QueryClientProvider client={queryClient}>
+      <MantineProvider theme={KissenaTheme} withGlobalStyles withNormalizeCSS>
+        <Router />
+      </MantineProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );

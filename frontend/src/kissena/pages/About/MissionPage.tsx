@@ -2,6 +2,7 @@ import React from 'react';
 import { Title, Text } from '@mantine/core';
 import logo from './logo.png';
 
+
 const MissionPage: React.FC = () => {
   return (
     <div
@@ -37,6 +38,7 @@ const MissionPage: React.FC = () => {
           >
             Our Mission
           </Title>
+
 
           {/* "Lorem Ipsum" Text */}
           <div
@@ -83,6 +85,7 @@ const MissionPage: React.FC = () => {
           </div>
         </div>
 
+
         {/* Rectangle with Image */}
         <div
           style={{
@@ -107,6 +110,7 @@ const MissionPage: React.FC = () => {
           />
         </div>
       </div>
+
 
       {/* "Why Kissena Synergy?" Section */}
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '150px' }}>
@@ -148,11 +152,12 @@ const MissionPage: React.FC = () => {
           </Text>
         </div>
 
+
         {/* Kissena Logo */}
         <div
           style={{
-            width: '100px',
-            height: '100px',
+            width: '250px',
+            height: '250px',
             flexShrink: 0,
             display: 'flex',
             marginTop: '60px',
@@ -176,4 +181,7 @@ const MissionPage: React.FC = () => {
   );
 };
 
+
 export default MissionPage;
+
+
