@@ -19,7 +19,7 @@ export function EventList() {
     data: events,
     isLoading,
     isError,
-    refetch
+    refetch,
   } = useQuery<EventData[]>({
     queryKey: ['events'],
     queryFn: () => {
@@ -34,8 +34,7 @@ export function EventList() {
 
   // Whenever the rangeStart changes, refetch our data
   useEffect(() => {
-    refetch()
-    .catch(err => console.error(err))
+    refetch().catch((err) => console.error(err))
   }, [rangeStart, refetch])
 
   const noEventsFoundMessage = useMemo(() => {

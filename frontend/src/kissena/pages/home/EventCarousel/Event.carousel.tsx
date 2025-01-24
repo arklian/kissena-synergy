@@ -25,7 +25,7 @@ export function EventCarousel() {
 
   const content = useMemo(() => {
     if (isLoading) {
-      return <PlaceholderStack hidden={!isLoading} />
+      return <PlaceholderStack entries={1} hidden={!isLoading} />
     }
     if (isError) {
       return <ErrorBlurb />
