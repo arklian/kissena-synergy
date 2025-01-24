@@ -1,5 +1,5 @@
-import { PaginationContext } from "./PaginationContext";
-import { PaginationControl } from "./PaginatonControl";
-import { PaginationProvider } from "./PaginationProvider";
+import { PaginationContext } from './PaginationContext'
+import { PaginationControl } from './PaginatonControl'
+import { PaginationProvider } from './PaginationProvider'
 
-export { PaginationContext, PaginationControl, PaginationProvider };
+export { PaginationContext, PaginationControl, PaginationProvider }

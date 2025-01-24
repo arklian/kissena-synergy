@@ -9,9 +9,6 @@ import '@kissena/theme.module.css'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Router from '@/Router'
-import { NavBar } from './kissena/navbar/navBar.tsx'
-import { Outlet } from 'react-router-dom'
-
 
 const queryClient = new QueryClient()
 
@@ -24,6 +21,10 @@ function App() {
       >
         <NavBar />
           <Outlet />
+      <MantineProvider
+        theme={KissenaTheme}
+        cssVariablesResolver={KissenaCSSResolver}
+      >
         <Router />
       </MantineProvider>
     </QueryClientProvider>

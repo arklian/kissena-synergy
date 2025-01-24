@@ -3,14 +3,14 @@ import Swiggle from '@kissena/pages/home/assets/swiggle.svg'
 import { Stack, Image, Title, Group, Text } from '@mantine/core'
 
 import { motion } from 'motion/react'
+import { AnnouncementBanner } from '@kissena/pages/home/AnnouncementBanner/Announcement.banner'
 
 // Create a motion-supported variant of Mantine components
 const MotionTitle = motion.create(Title)
+// Horizontal offset for the hero-text from left viewport edge
+export const HEROTEXT_OFFSET_X = 100
 
 export function HomePage() {
-  // Horizontal offset for the hero-text from left viewport edge
-  const heroText_dx = 100
-
   return (
     <>
       <Stack>
@@ -62,8 +62,8 @@ export function HomePage() {
           </div>
         </Stack>
         <Text
-          pl={heroText_dx}
-          pr={heroText_dx}
+          pl={HEROTEXT_OFFSET_X}
+          pr={HEROTEXT_OFFSET_X}
           className={styles.description}
           size="lg"
           ta="left"
@@ -73,6 +73,7 @@ export function HomePage() {
             'dictumst faucibus porttitor. Nulla faucibus gravida ' +
             'magna id habitant hac cras laoreet.'}
         </Text>
+        <AnnouncementBanner />
       </Stack>
     </>
   )

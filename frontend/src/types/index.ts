@@ -1,3 +1,3 @@
-import { AnnouncementData } from "./AnnouncementData";
+import { AnnouncementData } from './AnnouncementData'
 
-export type { AnnouncementData };
+export type { AnnouncementData }

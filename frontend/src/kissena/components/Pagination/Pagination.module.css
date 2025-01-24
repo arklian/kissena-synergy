@@ -1,7 +1,7 @@
 .button {
   &:disabled,
   &[data-disabled] {
-    opacity: .25;
+    opacity: 0.25;
     border-color: var(--mantine-color-darkGreen-5);
     background-color: transparent;
   }
