@@ -1,15 +1,11 @@
 import { Title, Text, Grid, Card, Stack, Box, Image, Container } from '@mantine/core'
-import Daniel from "@kissena/pages/team/daniel.png"
-import Subir from "@kissena/pages/team/subir.png"
+
 
 export default function TeamSection() {
   const teamMembers = [
-    { name: "Daniel", title: "Project Lead", image: Daniel},
-    { name: "Henry", title: "Mentor", image: '' },
-    { name: "Subir", title: "Coder", image: Subir },
-    { name: "Elhadji", title: "Coder", image: '' },
-    { name: "Proma", title: "Coder", image: '' },
-    { name: "Kissena Member", title: "Member", image: ''}
+    { name: "Leona Chin", title: "", image:''},
+    { name: "Alexandra Wong", title: "Mentor", image: '' },
+    { name: "Feron Daniel", title: "Board Member", image: '' },
   ];
 
   return (
