@@ -11,11 +11,13 @@ import { EventCarousel } from './EventCarousel/Event.carousel'
 const MotionTitle = motion.create(Title)
 // Horizontal offset for the hero-text from left viewport edge
 export const HEROTEXT_OFFSET_X = 100
+const landingBrief = "We work together to restore the Kissena Velodrome and surrounding parklands, creating a vibrant community hub for all. Join us in making a positive impact on our neighborhood.";
 
 export function HomePage() {
   return (
     <>
-      <Stack>
+      <Stack gap={0}>
+      <AnnouncementBanner />
         <Stack h={'100%'} gap={'30'}>
           <div className={styles.splashContainer}>
             <Stack className={styles.heroTextContainer} mt={'auto'}>
@@ -70,13 +72,9 @@ export function HomePage() {
           size="lg"
           ta="left"
         >
-          {'Lorem ipsum odor amet, consectetuer adipiscing elit. ' +
-            'Maecenas dapibus quisque tempor interdum maximus ' +
-            'dictumst faucibus porttitor. Nulla faucibus gravida ' +
-            'magna id habitant hac cras laoreet.'}
+          {landingBrief}
         </Text>
-        <AnnouncementBanner />
-        <Divider color={'neonGreen.6'} />
+        <Divider mt={"xl"} color={'neonGreen.6'} />
         <Box px={{ xs: 0, sm: HEROTEXT_OFFSET_X / 2, md: HEROTEXT_OFFSET_X }}>
           <EventCarousel />
         </Box>
