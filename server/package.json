@@ -1,0 +1,39 @@
+{
+  "name": "kissena-synergy-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "build": "tsc -b",
+    "preview": "node dist/server.js",
+    "server": "nodemon api/server.ts",
+    "format": "prettier --write .",
+    "lint": "eslint . ",
+    "lint:fix": "eslint . --fix "
+  },
+  "_moduleAliases": {
+    "@api": "api",
+    "@routes": "api/routes",
+    "@functions": "api/functions"
+  },
+  "keywords": [],
+  "author": "Patina Network",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "The backend server for running Kissena Synergy's website.",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.7",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "globals": "^15.14.0",
+    "module-alias": "^2.2.3",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.20.0"
+  }
+}

@@ -1,0 +1,17 @@
+.page-container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--mantine-navbar-height) 70px 0;
+
+  @mixin smaller-than $mantine-breakpoint-md {
+    padding: var(--mantine-navbar-height) 40px 0;
+  }
+}
+
+.standard {
+  max-width: 1200px;
+}
+
+.wide {
+  max-width: 1700px;
+}
