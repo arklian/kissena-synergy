@@ -1,0 +1,14 @@
+.button {
+  &:disabled,
+  &[data-disabled] {
+    opacity: 0.25;
+    border-color: var(--mantine-color-darkGreen-5);
+    background-color: transparent;
+  }
+}
+
+.container {
+  background-color: var(--mantine-color-darkGreen-6);
+  box-shadow: 0 0 5px var(--mantine-color-darkGreen-7);
+  border-radius: 5px;
+}
