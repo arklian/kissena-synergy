@@ -10,7 +10,7 @@ const MotionTitle = motion.create(Title)
 // Horizontal offset for the hero-text from left viewport edge
 export const HEROTEXT_OFFSET_X = 100
 
-export function HomePage() {
+const HomePage = () => {
   return (
     <>
       <Stack>
@@ -82,3 +82,5 @@ export function HomePage() {
     </>
   )
 }
+
+export default HomePage
