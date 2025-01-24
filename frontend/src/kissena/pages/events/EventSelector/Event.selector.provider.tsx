@@ -43,7 +43,7 @@ export function EventSelectorProvider(props: PropsWithChildren) {
   // Move the date range window to a week following the parameter date
   const setDateRange = (newRangeStart: Date) => {
     setRangeStart(newRangeStart)
-    const newRangeEnd = new Date()
+    const newRangeEnd = new Date(newRangeStart)
     newRangeEnd.setDate(newRangeStart.getDate() + 7)
     setRangeEnd(newRangeEnd)
   }

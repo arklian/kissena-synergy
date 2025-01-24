@@ -13,7 +13,7 @@ import {
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import classes from './navbar.module.css';
-import { IconChevronDown } from '@tabler/icons-react';
+import { ChevronDown } from 'lucide-react';
 import logo from '@kissena/navbar/assets/logo.png';
 import kissenaName from '@kissena/navbar/assets/KissenaName.png';
 
@@ -24,19 +24,16 @@ const links = [
     label: 'Announcements',
   },
   {
-    link: '',
+    link: '/events',
     label: 'Events',
-    subLinks: [
-      { link: '', label: 'Upcoming' },
-      { link: '', label: 'Recent' },
-    ],
   },
   {
     link: '',
     label: 'Learn More',
     subLinks: [
-      { link: '', label: 'Our Mission' },
+      { link: '/about', label: 'Our Mission' },
       { link: '/team', label: 'Meet the Team' },
+      { link: '/resources', label: 'Resources' }
     ],
   },
 ];
@@ -62,7 +59,7 @@ export function NavBar() {
             <UnstyledButton className={classes.link}>
               <Center>
                 <Text className={classes.linkLabel}>{link.label}</Text>
-                <IconChevronDown size="30px" stroke="1.5px" color= '#FFF4B9' />
+                <ChevronDown size={"20"} />
               </Center>
             </UnstyledButton>
           </Menu.Target>

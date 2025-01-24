@@ -40,9 +40,9 @@ export function EventList() {
   const noEventsFoundMessage = useMemo(() => {
     return (
       <Stack mt={'10rem'} justify="center" align="center">
-        <Title c="neonGreen.7">Whoops!</Title>
+        {/* <Title c="neonGreen.7"></Title> */}
         <Title order={2} c="neonGreen.9">
-          Looks like we could not find any events.
+          No events scheduled matching these filters.
         </Title>
       </Stack>
     )

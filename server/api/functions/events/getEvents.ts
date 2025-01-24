@@ -128,5 +128,41 @@ const sample =
         team: "green",
         partner: "",
         learnMoreUrl: ""
+    },
+    {
+        id: "11",
+        title: "UA3 Food Pantry",
+        location: "Grand St, NYC",
+        description: "Contact us the NYC Location to participate",
+        date: "01/27/2025",
+        startTime: "",
+        endTime: "",
+        team: "partner",
+        partner: "UA3",
+        learnMoreUrl: ""
+    },
+    {
+        id: "12",
+        title: "Food Pantry",
+        location: "Ozone Park, NY",
+        description: "Participate in ongoing efforts to restore the health of the forest and promote a sustainable environment in Kissena Park. Registration pending.",
+        date: "01/28/2025",
+        startTime: "",
+        endTime: "",
+        team: "partner",
+        partner: "MZ",
+        learnMoreUrl: ""
+    },
+    {
+        id: "1243",
+        title: "Forestry Team QCP",
+        location: "Kissena Park",
+        description: "",
+        date: "01/28/2025",
+        startTime: "",
+        endTime: "",
+        team: "partner",
+        partner: "MZ",
+        learnMoreUrl: ""
     }
 ]
