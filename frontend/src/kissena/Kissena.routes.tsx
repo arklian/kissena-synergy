@@ -2,8 +2,10 @@ import { HomePage } from '@kissena/pages/home/Home.page'
 import { DemoPage } from '@kissena/pages/placeholder/Demo.page'
 import { AnnouncementsPage } from '@kissena/pages/announcements/Announcements.page'
 import { EventsPage } from '@kissena/pages/events/Event.page'
+import TeamSection  from './pages/team/Member.Card'
 import { ResourcePage } from '@kissena/pages/resources/Resource.page'
 import { AboutPage } from './pages/about/About.page'
+
 
 export const KissenaRoutes = [
   {
@@ -11,6 +13,7 @@ export const KissenaRoutes = [
     description: 'Home',
     element: <HomePage />,
   },
+
   {
     path: 'announcements',
     description: 'Announcements',
@@ -22,15 +25,19 @@ export const KissenaRoutes = [
     element: <EventsPage />,
   },
   {
-
+    path: 'team',
+    description: 'Meet the team',
+    element: <TeamSection />
+  },
+  {
     path: 'resources',
     description: 'Resources',
     element: <ResourcePage />,
-
+  },
+  {
     path: 'about',
     description: 'About',
     element: <AboutPage />,
-
   },
   {
     path: 'placeholder',

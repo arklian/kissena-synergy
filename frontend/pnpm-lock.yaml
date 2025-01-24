@@ -20,6 +20,9 @@ importers:
       '@mantine/hooks':
         specifier: ^7.16.1
         version: 7.16.1(react@18.3.1)
+      '@tabler/icons-react':
+        specifier: ^3.29.0
+        version: 3.29.0(react@18.3.1)
       '@tanstack/react-query':
         specifier: ^5.64.2
         version: 5.64.2(react@18.3.1)
@@ -572,6 +575,14 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@tabler/icons-react@3.29.0':
+    resolution: {integrity: sha512-jaa3b3j91CplY7TPgx/Gj/e+PcOnQgYiK6c5qtp1P0ytfKM5WPc1qtXyRLE3NcYlfxS2Pcst4YGy1vUML7SjbQ==}
+    peerDependencies:
+      react: '>= 16'
+
+  '@tabler/icons@3.29.0':
+    resolution: {integrity: sha512-VWNINymdmhay3MDvWVREmRwuWLSrX3YiInKvs5L4AHRF4bAfJabLlEReE0BW/XFsBt22ff8/C8Eam/LXlF97mA==}
+
   '@tanstack/query-core@5.64.2':
     resolution: {integrity: sha512-hdO8SZpWXoADNTWXV9We8CwTkXU88OVWRBcsiFrk7xJQnhm6WRlweDzMD+uH+GnuieTBVSML6xFa17C2cNV8+g==}
 
@@ -1025,7 +1036,6 @@ packages:
 
   framer-motion@11.18.2:
     resolution: {integrity: sha512-5F5Och7wrvtLVElIpclDT0CBzMVg3dL22B64aZwHtsIY8RB4mXICLrkajK4G9R+ieSAGcgrLeae2SeUTg2pr6w==}
-
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -2308,6 +2318,13 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.31.0':
     optional: true
+
+  '@tabler/icons-react@3.29.0(react@18.3.1)':
+    dependencies:
+      '@tabler/icons': 3.29.0
+      react: 18.3.1
+
+  '@tabler/icons@3.29.0': {}
 
   '@tanstack/query-core@5.64.2': {}
 
