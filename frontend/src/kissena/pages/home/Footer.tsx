@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaInstagramSquare, FaFacebookSquare } from 'react-icons/fa'
+// import { Facebook, Instagram } from 'lucide-react'
 import { Button, Text, Input, Title, Anchor, Group, Stack } from '@mantine/core'
 
 
@@ -124,7 +124,7 @@ export const Footer = () => {
             >
               Facebook
             </a>
-            <FaFacebookSquare style={{ color: '#B8F000', fontSize: '30px' }} />
+            {/* <Facebook style={{ color: '#B8F000', fontSize: '30px' }} /> */}
           </Group>
           <Group style={{ justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
             <a
@@ -141,7 +141,7 @@ export const Footer = () => {
             >
               Instagram
             </a>
-            <FaInstagramSquare style={{ color: '#B8F000', fontSize: '30px' }} />
+            {/* <Instagram style={{ color: '#B8F000', fontSize: '30px' }} /> */}
           </Group>
         </Stack>
 
