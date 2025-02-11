@@ -16,7 +16,7 @@ static_sites:
   - catchall_document: index.html
     environment_slug: node-js
     github:
-      branch: henry
+      branch: main
       deploy_on_push: true
       repo: arklian/kissena-synergy
     name: kissena-synergy-frontend
