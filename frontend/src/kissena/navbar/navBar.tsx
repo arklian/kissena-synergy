@@ -4,6 +4,7 @@ import {
   // Center,
   Drawer,
   Group,
+  Image,
   // Menu,
   NavLink,
   ScrollArea,
@@ -42,10 +43,10 @@ const links = [
     link: '/about',
     label: 'About Us',
   },
-  {
-    link: '/team',
-    label: 'Meet the Team',
-  },
+  // {
+  //   link: '/team',
+  //   label: 'Meet the Team',
+  // },
 ]
 
 export function NavBar() {
@@ -96,7 +97,7 @@ export function NavBar() {
           href={link.link}
           className={classes.link}
         >
-          <Text size="lg">{link.label}</Text>
+          <Text size="xl">{link.label}</Text>
         </UnstyledButton>
       : <span key={link.label} className={classes.link}>
           {link.label}
@@ -113,14 +114,12 @@ export function NavBar() {
               href="/"
               className={classes.logoSection}
             >
-              <img src={logo} alt="Logo" className={classes.logoImage} />
-              <div className={classes.logoText}>
-                <img
-                  src={kissenaName}
-                  alt="Kissena Synergy"
-                  className={classes.nameImage}
-                />
-              </div>
+              <Image src={logo} alt="Logo" className={classes.logoImage} />
+              <Image
+                src={kissenaName}
+                alt="Kissena Synergy"
+                className={classes.nameImage}
+              />
             </UnstyledButton>
             <Group justify="space-between" align="center">
               <Group gap={5} visibleFrom="sm">
@@ -144,19 +143,37 @@ export function NavBar() {
             padding="md"
             hiddenFrom="sm"
             position="right"
-            closeButtonProps={{ size: 'xl', mr: 24 }}
+            closeButtonProps={{
+              size: 'xl',
+              mr: 24,
+              c: 'var(--mantine-color-lightYellow-2)',
+            }}
+            styles={{
+              content: {
+                backgroundColor: 'var(--mantine-color-darkGreen-5)',
+              },
+              header: { backgroundColor: 'var(--mantine-color-darkGreen-5)' },
+            }}
           >
             <ScrollArea>
               <NavLink
                 href="/"
-                label={<Text size="xl">Home</Text>}
+                label={
+                  <Text size="xl" c={'lightYellow.2'}>
+                    Home
+                  </Text>
+                }
                 leftSection={<Space w={10} />}
               />
               {links.map((link) => (
                 <NavLink
                   key={link.label}
                   href={link.link}
-                  label={<Text size="xl">{link.label}</Text>}
+                  label={
+                    <Text size="xl" c={'lightYellow.2'}>
+                      {link.label}
+                    </Text>
+                  }
                   leftSection={<Space w={10} />}
                 />
               ))}

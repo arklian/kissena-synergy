@@ -1,8 +1,12 @@
 .header {
-  height: 102px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 80px;
   background-color: var(--mantine-color-darkGreen-6);
   border-bottom: 0.5px solid var(--mantine-color-neonGreen-9);
   width: 100%;
+
 }
 
 .headerPlaceholder {
@@ -13,12 +17,13 @@
 }
 
 .inner {
-  height: 110px;
+  max-width: 1340px;
+  padding-inline: 70px;
+  height: 80px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 0 48px;
-  max-width: 1400px;
   margin: 0 auto;
   box-sizing: border-box;
   @mixin hover {
@@ -29,8 +34,9 @@
   display: flex;
   align-items: center;
   line-height: 1;
-  padding: 15px 20px;
-  border-radius: 30px;
+  margin-block: 8px;
+  padding: 10px 15px;
+  border-radius: 10px;
   text-decoration: none;
   color: var(--mantine-color-lightYellow-1);
   font-size: 18px;
@@ -39,7 +45,7 @@
 }
 
 .link:hover {
-  background-color: var(--mantine-color-darkGreen-7);
+  background-color: var(--mantine-color-darkGreen-4);
 }
 
 .linkLabel {
@@ -78,23 +84,21 @@
 .logoSection {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: auto;
   gap: 10px;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-
-.logoText {
-  display: flex;
-  flex-direction: column;
+  border-radius: 10px;
+  border: solid 4px var(--mantine-color-darkGreen-5);
+  margin-block: 6px
 }
 
 .logoImage {
   width: 70px;
-  height: 70px;
+  height: 50px;
   object-fit: contain;
 }
 .nameImage {
   width: 110px;
-  height: 110px;
+  height: 50px;
   object-fit: contain;
 }

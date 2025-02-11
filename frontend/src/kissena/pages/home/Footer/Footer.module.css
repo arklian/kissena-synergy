@@ -1,4 +1,13 @@
-.footer-container {
+.footer-container-wrapper {
+  box-sizing: border-box;
   width: 100%;
-  max-width: 1200px;
+  border-top: solid 2px var(--mantine-color-darkGreen-4);
+  margin-top: 48px;
+}
+
+.footer-container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1340px;
+  padding-inline: 70px;
 }

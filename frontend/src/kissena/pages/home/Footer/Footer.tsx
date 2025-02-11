@@ -1,46 +1,42 @@
-import React from 'react'
 import styles from '@kissena/pages/home/Footer/Footer.module.css'
-// import { Facebook, Instagram } from 'lucide-react'
 import {
   Button,
   Text,
-  Input,
-  Title,
   Anchor,
   Group,
   Stack,
-  Space,
   Box,
   Divider,
   ActionIcon,
 } from '@mantine/core'
-import { FacebookIcon, InstagramIcon } from 'lucide-react'
+import { FaFacebookSquare } from 'react-icons/fa'
+import { TbBrandLinktree } from 'react-icons/tb'
 
 const mailingListURL = ''
 
 const links = [
-  {
-    label: 'News',
-    link: '',
-    sublinks: [
-      { link: 'events', label: 'Events' },
-      { link: 'announcements', label: 'Announcements' },
-    ],
-  },
+  // {
+  //   label: 'News',
+  //   link: '',
+  //   sublinks: [
+  //     { link: 'events', label: 'Events' },
+  //     { link: 'announcements', label: 'Announcements' },
+  //   ],
+  // },
   {
     label: 'About',
     link: '',
     sublinks: [
-      { link: 'mission', label: 'Our Mission' },
-      { link: 'team', label: 'Meet The Team' },
-      { link: 'partners', label: 'Partners' },
+      { link: '/about', label: 'Our Mission' },
+      // { link: 'team', label: 'Meet The Team' },
+      // { link: 'partners', label: 'Partners' },
     ],
   },
-  {
-    label: 'Resources',
-    link: 'resources',
-    sublinks: [],
-  },
+  // {
+  //   label: 'Resources',
+  //   link: 'resources',
+  //   sublinks: [],
+  // },
 ]
 
 export function Footer() {
@@ -54,11 +50,17 @@ export function Footer() {
     }
     return (
       <Stack key={group.label} gap={'0.3rem'}>
-        <Text size="md" fw={600} c="neonGreen.6">
+        <Text size="xl" fw={600} c="neonGreen.6">
           {group.label}
         </Text>
         {group.sublinks.map((link, index) => (
-          <Anchor size="sm" fw={400} c={'lightYellow.1'} key={index}>
+          <Anchor
+            href={link.link}
+            size="lg"
+            fw={400}
+            c={'lightYellow.1'}
+            key={index}
+          >
             {link.label}
           </Anchor>
         ))}
@@ -68,62 +70,74 @@ export function Footer() {
 
   return (
     <footer>
-      <Stack
-        align="center"
-        bg={'darkGreen.6'}
-        mt={'2rem'}
-        bd={'solid 1px var(--mantine-color-darkGreen-5)'}
-      >
-        <Group
+      <Stack className={styles.footerContainerWrapper} align={'center'}>
+        <Stack
           className={styles.footerContainer}
-          // w={{ sm: "100%", md: "800", lg: "1200"}}
-          px="6rem"
-          gap={'xl'}
-          py={'2rem'}
-          align="flex-start"
-          justify="space-between"
-          wrap="wrap"
+          align="center"
+          justify={'space-between'}
+          w={'100%'}
+          bg={'darkGreen.6'}
+          mt={'2rem'}
         >
-          <Group w={'300px'}>
-            <Text c={'lightYellow.1'} size="sm">
-              Join our weekly newsletter to stay up-to-date with resources &
-              opportunities to get involved
-            </Text>
-            <Box>
-              <Button
-                autoContrast
-                color={'neonGreen.7'}
-                component="a"
-                href={mailingListURL}
-              >
-                Join Here
-              </Button>
-            </Box>
-          </Group>
-          <Group visibleFrom="sm" align="flex-start">
-            {groups}
+          <Group
+            gap={'xl'}
+            w={'100%'}
+            py={'2rem'}
+            align="flex-start"
+            justify="space-between"
+            wrap="wrap"
+          >
+            <Group w={'300px'}>
+              <Text c={'lightYellow.1'} size="lg">
+                Join our weekly newsletter to stay up-to-date with resources &
+                opportunities to get involved
+              </Text>
+              <Box>
+                <Button
+                  autoContrast
+                  size={'lg'}
+                  color={'neonGreen.7'}
+                  component="a"
+                  href={mailingListURL}
+                >
+                  Join Here
+                </Button>
+              </Box>
+            </Group>
+            <Group align="flex-start">{groups}</Group>
           </Group>
           <Divider color={'darkGreen.5'} w={'100%'} />
-          <Group w={'100%'} justify="flex-end">
-            <ActionIcon
-              c={'neonGreen.6'}
-              variant="light"
-              component="a"
-              size={'xl'}
-            >
-              <FacebookIcon color="var(--mantine-color-neonGreen-6)" />
-            </ActionIcon>
-            <ActionIcon
-              c={'neonGreen.6'}
-              variant="light"
-              component="a"
-              size={'xl'}
-            >
-              <InstagramIcon color="var(--mantine-color-neonGreen-6)" />
-            </ActionIcon>
-          </Group>
-        </Group>
+          <SocialsIcons />
+        </Stack>
       </Stack>
     </footer>
+  )
+}
+
+function SocialsIcons() {
+  return (
+    <Group w={'100%'} justify="flex-end">
+      <ActionIcon
+        component="a"
+        href={'https://www.facebook.com/groups/610957329304796'}
+        c={'neonGreen.6'}
+        variant="light"
+        size={'xl'}
+      >
+        <FaFacebookSquare color="neonGreen.6" size={'24px'} />
+      </ActionIcon>
+      {/*<ActionIcon c={'neonGreen.6'} variant="light" component="a" size={'xl'}>*/}
+      {/*  <FaInstagram color="neonGreen.6" size={'24px'} />*/}
+      {/*</ActionIcon>*/}
+      <ActionIcon
+        component="a"
+        href={'https://linktr.ee/kissenasynergy'}
+        c={'neonGreen.6'}
+        variant="light"
+        size={'xl'}
+      >
+        <TbBrandLinktree color="neonGreen.6" size={'24px'} />
+      </ActionIcon>
+    </Group>
   )
 }
