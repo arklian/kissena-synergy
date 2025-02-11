@@ -100,11 +100,11 @@ export function Footer() {
               </Button>
             </Box>
           </Group>
-          <Group visibleFrom='sm' align="flex-start">
+          <Group visibleFrom="sm" align="flex-start">
             {groups}
           </Group>
           <Divider color={'darkGreen.5'} w={'100%'} />
-          <Group w={'100%'} justify='flex-end'>
+          <Group w={'100%'} justify="flex-end">
             <ActionIcon
               c={'neonGreen.6'}
               variant="light"
@@ -113,11 +113,12 @@ export function Footer() {
             >
               <FacebookIcon color="var(--mantine-color-neonGreen-6)" />
             </ActionIcon>
-            <ActionIcon 
-            c={'neonGreen.6'}
+            <ActionIcon
+              c={'neonGreen.6'}
               variant="light"
               component="a"
-              size={'xl'}>
+              size={'xl'}
+            >
               <InstagramIcon color="var(--mantine-color-neonGreen-6)" />
             </ActionIcon>
           </Group>

@@ -77,7 +77,7 @@ export function HomePage() {
           {landingBrief}
         </Text>
         <Divider mt={'xl'} color={'neonGreen.6'} />
-        <Stack px={{ xs: 0, sm: HEROTEXT_OFFSET_X / 2, md: HEROTEXT_OFFSET_X }}>
+        <Stack align='center' px={{ xs: 0, sm: HEROTEXT_OFFSET_X / 2, md: HEROTEXT_OFFSET_X }}>
           <EventCarousel />
         </Stack>
       </Stack>

@@ -60,7 +60,7 @@ export function EventCarousel() {
   }, [events, isLoading, isError])
 
   return (
-    <Stack id="event-carousel-container" mt={'xl'}>
+    <Stack w={"90%"} maw={"1200px"} id="event-carousel-container" mt={'xl'}>
       <Group justify="space-between">
         <Title order={2} c="neonGreen.6" mb={'md'}>
           Upcoming Events
