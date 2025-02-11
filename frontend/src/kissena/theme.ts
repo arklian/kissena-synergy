@@ -157,7 +157,7 @@ export const KissenaTheme = createTheme({
 
   other: {
     standardBorderRadius: '10px',
-    navBarHeight: '140px',
+    navBarHeight: '70px',
   },
 })
 
