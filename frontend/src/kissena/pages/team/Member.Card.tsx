@@ -1,12 +1,20 @@
-import { Title, Text, Grid, Card, Stack, Box, Image, Container } from '@mantine/core'
-
+import {
+  Title,
+  Text,
+  Grid,
+  Card,
+  Stack,
+  Box,
+  Image,
+  Container,
+} from '@mantine/core'
 
 export default function TeamSection() {
   const teamMembers = [
-    { name: "Leona Chin", title: "", image:''},
-    { name: "Alexandra Wong", title: "Mentor", image: '' },
-    { name: "Feron Daniel", title: "Board Member", image: '' },
-  ];
+    { name: 'Leona Chin', title: '', image: '' },
+    { name: 'Alexandra Wong', title: 'Mentor', image: '' },
+    { name: 'Feron Daniel', title: 'Board Member', image: '' },
+  ]
 
   return (
     <Box p="xl" bg="darkGreen.6">
@@ -25,25 +33,25 @@ export default function TeamSection() {
             {teamMembers.map((member, index) => (
               <Grid.Col key={index} span={{ base: 12, sm: 6, md: 4 }}>
                 <Stack gap="md" align="center">
-                  <Card 
-                    shadow="sm" 
-                    padding="0" 
-                    radius="md" 
+                  <Card
+                    shadow="sm"
+                    padding="0"
+                    radius="md"
                     withBorder
-                    style={{ 
+                    style={{
                       width: '100%',
                       maxWidth: '320px',
-                      margin: '0 auto'
+                      margin: '0 auto',
                     }}
                   >
-                    <Box 
-                      style={{ 
+                    <Box
+                      style={{
                         position: 'relative',
                         paddingTop: '125%',
-                        width: '100%'
+                        width: '100%',
                       }}
                     >
-                      {member.image ? (
+                      {member.image ?
                         <Image
                           src={member.image}
                           alt={`${member.name} profile photo`}
@@ -53,22 +61,20 @@ export default function TeamSection() {
                             left: 0,
                             width: '100%',
                             height: '100%',
-                            objectFit: 'cover'
+                            objectFit: 'cover',
                           }}
                         />
-                      ) : (
-                        <Box 
-                          style={{ 
+                      : <Box
+                          style={{
                             width: '100%',
                             height: '100%',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            backgroundColor: 'var(--mantine-color-gray-1)'
+                            backgroundColor: 'var(--mantine-color-gray-1)',
                           }}
-                        >
-                        </Box>
-                      )}
+                        ></Box>
+                      }
                     </Box>
                   </Card>
                   <Stack gap={0} align="center">
@@ -86,5 +92,5 @@ export default function TeamSection() {
         </Stack>
       </Container>
     </Box>
-  );
+  )
 }
