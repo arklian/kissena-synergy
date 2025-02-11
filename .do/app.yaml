@@ -1,0 +1,9 @@
+name: Kissena Synergy
+static_sites:
+  - environment_slug: html
+    github:
+      branch: main
+      deploy_on_push: true
+      repo: arklian/kissena-synergy
+    name: kissena-synergy-website
+    source_dir: ./frontend
