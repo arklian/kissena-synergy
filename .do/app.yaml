@@ -11,7 +11,7 @@ ingress:
         path:
           prefix: /
 name: kissena-synergy-website
-region: sfo
+region: nyc
 static_sites:
   - catchall_document: index.html
     environment_slug: node-js
