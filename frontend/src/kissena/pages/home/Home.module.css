@@ -26,7 +26,7 @@ body {
     backdrop-filter: saturate(130%);
 
     mask-image: linear-gradient(90deg, rgba(0 0 0 / 100%), transparent 45%);
-    box-shadow: 0 5vw 5vw var(--mantine-color-darkGreen-6) inset;
+    box-shadow: 0 0 5vw 5vw var(--mantine-color-darkGreen-6) inset;
     z-index: 9;
   }
 
@@ -121,4 +121,10 @@ body {
     */
     transform: translateX(-100%) !important;
   }
+}
+
+.linkCard {
+  border-radius: 10px;
+  padding: 12px;
+  margin-inline: 24px;
 }
