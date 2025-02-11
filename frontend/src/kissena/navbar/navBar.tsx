@@ -10,13 +10,12 @@ import {
   Space,
   Text,
   UnstyledButton,
-} from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import classes from './navbar.module.css';
-import { ChevronDown } from 'lucide-react';
-import logo from '@kissena/navbar/assets/logo.png';
-import kissenaName from '@kissena/navbar/assets/KissenaName.png';
-
+} from '@mantine/core'
+import { useDisclosure } from '@mantine/hooks'
+import classes from './navbar.module.css'
+import { ChevronDown } from 'lucide-react'
+import logo from '@kissena/navbar/assets/logo.png'
+import kissenaName from '@kissena/navbar/assets/KissenaName.png'
 
 const links = [
   {
@@ -33,19 +32,19 @@ const links = [
     subLinks: [
       { link: '/about', label: 'Our Mission' },
       { link: '/team', label: 'Meet the Team' },
-      { link: '/resources', label: 'Resources' }
+      { link: '/resources', label: 'Resources' },
     ],
   },
-];
+]
 
 export function NavBar() {
-  const [opened, { toggle, close }] = useDisclosure(false);
+  const [opened, { toggle, close }] = useDisclosure(false)
 
   const items = links.map((link) => {
     if (link.subLinks) {
       return (
         <Menu
-        classNames={{'dropdown': classes.dropDownMenu}}
+          classNames={{ dropdown: classes.dropDownMenu }}
           key={link.label}
           position="bottom-start"
           trigger="click-hover"
@@ -59,7 +58,7 @@ export function NavBar() {
             <UnstyledButton className={classes.link}>
               <Center>
                 <Text className={classes.linkLabel}>{link.label}</Text>
-                <ChevronDown size={"20"} />
+                <ChevronDown size={'20'} />
               </Center>
             </UnstyledButton>
           </Menu.Target>
@@ -76,24 +75,22 @@ export function NavBar() {
             ))}
           </Menu.Dropdown>
         </Menu>
-      );
+      )
     }
 
-    return link.link ? (
-      <UnstyledButton
-        component="a"
-        key={link.label}
-        href={link.link}
-        className={classes.link}
-      >
-        <Text size= "lg">{link.label}</Text>
-      </UnstyledButton>
-    ) : (
-      <span key={link.label} className={classes.link}>
-        {link.label}
-      </span>
-    );
-  });
+    return link.link ?
+        <UnstyledButton
+          component="a"
+          key={link.label}
+          href={link.link}
+          className={classes.link}
+        >
+          <Text size="lg">{link.label}</Text>
+        </UnstyledButton>
+      : <span key={link.label} className={classes.link}>
+          {link.label}
+        </span>
+  })
 
   return (
     <>
@@ -103,35 +100,29 @@ export function NavBar() {
             <UnstyledButton
               component="a"
               href="/"
-              
               className={classes.logoSection}
             >
-              <img 
-                src = {logo}
-                alt="Logo" 
-                className={classes.logoImage}
-              />
+              <img src={logo} alt="Logo" className={classes.logoImage} />
               <div className={classes.logoText}>
-              <img
-                src ={kissenaName}
-                alt ="Kissena Synergy"
-                className={classes.nameImage}
+                <img
+                  src={kissenaName}
+                  alt="Kissena Synergy"
+                  className={classes.nameImage}
                 />
-                
               </div>
             </UnstyledButton>
-            <Group justify = "space-between" align='center'>
-            <Group gap={5} visibleFrom="sm">
-              {items}
-            </Group>
+            <Group justify="space-between" align="center">
+              <Group gap={5} visibleFrom="sm">
+                {items}
+              </Group>
 
-            <Burger
-              opened={opened}
-              onClick={toggle}
-              size="md"
-              hiddenFrom="sm"
-              color="var(--mantine-color-lightYellow-2)"
-            />
+              <Burger
+                opened={opened}
+                onClick={toggle}
+                size="md"
+                hiddenFrom="sm"
+                color="var(--mantine-color-lightYellow-2)"
+              />
             </Group>
           </div>
 
@@ -164,5 +155,5 @@ export function NavBar() {
       </Affix>
       <div className={classes.headerPlaceholder} />
     </>
-  );
+  )
 }

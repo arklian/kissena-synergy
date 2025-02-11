@@ -1,8 +1,8 @@
 import styles from '@kissena/pages/home/Home.module.css'
 import Swiggle from '@kissena/pages/home/assets/swiggle.svg'
+import { Footer } from '@kissena/pages/home/Footer/Footer.tsx'
 import { Stack, Image, Title, Group, Text, Box, Divider } from '@mantine/core'
 import { motion } from 'motion/react'
-import { Footer } from './Footer'
 
 import { AnnouncementBanner } from '@kissena/pages/home/AnnouncementBanner/Announcement.banner'
 import { EventCarousel } from './EventCarousel/Event.carousel'
@@ -11,13 +11,14 @@ import { EventCarousel } from './EventCarousel/Event.carousel'
 const MotionTitle = motion.create(Title)
 // Horizontal offset for the hero-text from left viewport edge
 export const HEROTEXT_OFFSET_X = 100
-const landingBrief = "We work together to restore the Kissena Velodrome and surrounding parklands, creating a vibrant community hub for all. Join us in making a positive impact on our neighborhood.";
+const landingBrief =
+  'We work together to restore the Kissena Velodrome and surrounding parklands, creating a vibrant community hub for all. Join us in making a positive impact on our neighborhood.'
 
 export function HomePage() {
   return (
     <>
       <Stack gap={0}>
-      <AnnouncementBanner />
+        <AnnouncementBanner />
         <Stack h={'100%'} gap={'30'}>
           <div className={styles.splashContainer}>
             <Stack className={styles.heroTextContainer} mt={'auto'}>
@@ -68,19 +69,19 @@ export function HomePage() {
         <Text
           pl={HEROTEXT_OFFSET_X}
           pr={HEROTEXT_OFFSET_X}
+          pt={'1rem'}
           className={styles.description}
           size="lg"
           ta="left"
         >
           {landingBrief}
         </Text>
-        <Divider mt={"xl"} color={'neonGreen.6'} />
-        <Box px={{ xs: 0, sm: HEROTEXT_OFFSET_X / 2, md: HEROTEXT_OFFSET_X }}>
+        <Divider mt={'xl'} color={'neonGreen.6'} />
+        <Stack px={{ xs: 0, sm: HEROTEXT_OFFSET_X / 2, md: HEROTEXT_OFFSET_X }}>
           <EventCarousel />
-        </Box>
+        </Stack>
       </Stack>
       <Footer />
     </>
-    
   )
 }

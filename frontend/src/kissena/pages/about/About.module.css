@@ -1,8 +1,12 @@
 .gradient-text {
-    background-color: transparent;
-    background: linear-gradient(to bottom, var(--mantine-color-neonGreen-6), var(--mantine-color-neonOrange-6));
-    background-clip: text;
-    -moz-background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background-color: transparent;
+  background: linear-gradient(
+    to bottom,
+    var(--mantine-color-neonGreen-6),
+    var(--mantine-color-neonOrange-6)
+  );
+  background-clip: text;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

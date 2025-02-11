@@ -100,7 +100,8 @@ export function AnnouncementBanner() {
   }, [announcement, isLoading, isError, stringifiedDate])
 
   return (
-    <Box w={"100%"} p={`0.7rem ${HEROTEXT_OFFSET_X}`} bg={'neonGreen.6'}>
+
+    <Box w={'100%'} p={`0.7rem ${HEROTEXT_OFFSET_X}`} bg={'neonGreen.6'}>
       {content}
     </Box>
   )
