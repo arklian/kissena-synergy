@@ -11,6 +11,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Router from '@/Router'
 import { NavBar } from './kissena/navbar/navBar.tsx'
 import { Outlet } from 'react-router-dom'
+import { Footer } from '@kissena/pages/home/Footer/Footer.tsx'
 
 const queryClient = new QueryClient()
 
@@ -24,6 +25,7 @@ function App() {
         <NavBar />
         <Outlet />
         <Router />
+        <Footer />
       </MantineProvider>
     </QueryClientProvider>
   )

@@ -1,6 +1,5 @@
 import styles from '@kissena/pages/home/Home.module.css'
 import Swiggle from '@kissena/pages/home/assets/swiggle.svg'
-import { Footer } from '@kissena/pages/home/Footer/Footer.tsx'
 import {
   Stack,
   Image,
@@ -100,7 +99,6 @@ export function HomePage() {
         {/*</Stack>*/}
         <LinksSection />
       </PageContainer>
-      <Footer />
     </>
   )
 }
