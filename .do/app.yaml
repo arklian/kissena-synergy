@@ -1,0 +1,23 @@
+alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED
+features:
+  - buildpack-stack=ubuntu-22
+ingress:
+  rules:
+    - component:
+        name: kissena-synergy-frontend
+      match:
+        path:
+          prefix: /
+name: kissena-synergy-website
+region: nyc
+static_sites:
+  - catchall_document: index.html
+    environment_slug: node-js
+    github:
+      branch: main
+      deploy_on_push: true
+      repo: arklian/kissena-synergy
+    name: kissena-synergy-frontend
+    source_dir: frontend

@@ -13,7 +13,7 @@ import {
   UnstyledButton,
 } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
-import classes from './navbar.module.css'
+import classes from './NavBar.module.css'
 // import { ChevronDown } from 'lucide-react'
 import logo from '@kissena/navbar/assets/logo.png'
 import kissenaName from '@kissena/navbar/assets/KissenaName.png'

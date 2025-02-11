@@ -16,6 +16,7 @@ import kissena_facebook from '@kissena/pages/home/assets/kissena_facebook.jpg'
 import kissena_linktree from '@kissena/pages/home/assets/kissena_linktree.jpeg'
 import { TbBrandLinktree } from 'react-icons/tb'
 import { FaFacebookSquare } from 'react-icons/fa'
+import { ReactNode } from 'react'
 
 // import { AnnouncementBanner } from '@kissena/pages/home/AnnouncementBanner/Announcement.banner'
 // import { EventCarousel } from './EventCarousel/Event.carousel'
@@ -136,7 +137,7 @@ function LinkCard({
   link: string
   text: string
   image: string
-  icon: any
+  icon: ReactNode
   iconColor: string
 }) {
   return (
