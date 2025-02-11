@@ -1,10 +1,10 @@
 import styles from '@kissena/pages/home/Home.module.css'
 import Swiggle from '@kissena/pages/home/assets/swiggle.svg'
 import { Footer } from '@kissena/pages/home/Footer/Footer.tsx'
-import { Stack, Image, Title, Group, Text, Box, Divider } from '@mantine/core'
+import { Stack, Image, Title, Group, Text, Divider } from '@mantine/core'
 import { motion } from 'motion/react'
 
-import { AnnouncementBanner } from '@kissena/pages/home/AnnouncementBanner/Announcement.banner'
+// import { AnnouncementBanner } from '@kissena/pages/home/AnnouncementBanner/Announcement.banner'
 import { EventCarousel } from './EventCarousel/Event.carousel'
 
 // Create a motion-supported variant of Mantine components
@@ -18,7 +18,7 @@ export function HomePage() {
   return (
     <>
       <Stack gap={0}>
-        <AnnouncementBanner />
+        {/*<AnnouncementBanner />*/}
         <Stack h={'100%'} gap={'30'}>
           <div className={styles.splashContainer}>
             <Stack className={styles.heroTextContainer} mt={'auto'}>
@@ -76,10 +76,13 @@ export function HomePage() {
         >
           {landingBrief}
         </Text>
-        <Divider mt={'xl'} color={'neonGreen.6'} />
-        <Stack align='center' px={{ xs: 0, sm: HEROTEXT_OFFSET_X / 2, md: HEROTEXT_OFFSET_X }}>
-          <EventCarousel />
-        </Stack>
+        {/*<Divider mt={'xl'} color={'neonGreen.6'} />*/}
+        {/*<Stack*/}
+        {/*  align="center"*/}
+        {/*  px={{ xs: 0, sm: HEROTEXT_OFFSET_X / 2, md: HEROTEXT_OFFSET_X }}*/}
+        {/*>*/}
+        {/*  <EventCarousel />*/}
+        {/*</Stack>*/}
       </Stack>
       <Footer />
     </>
