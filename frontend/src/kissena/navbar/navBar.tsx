@@ -1,10 +1,10 @@
 import {
   Affix,
   Burger,
-  Center,
+  // Center,
   Drawer,
   Group,
-  Menu,
+  // Menu,
   NavLink,
   ScrollArea,
   Space,
@@ -13,27 +13,38 @@ import {
 } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import classes from './navbar.module.css'
-import { ChevronDown } from 'lucide-react'
+// import { ChevronDown } from 'lucide-react'
 import logo from '@kissena/navbar/assets/logo.png'
 import kissenaName from '@kissena/navbar/assets/KissenaName.png'
 
+// const links = [
+//   {
+//     link: '/announcements',
+//     label: 'Announcements',
+//   },
+//   {
+//     link: '/events',
+//     label: 'Events',
+//   },
+//   {
+//     link: '',
+//     label: 'Learn More',
+//     subLinks: [
+//       { link: '/about', label: 'Our Mission' },
+//       { link: '/team', label: 'Meet the Team' },
+//       { link: '/resources', label: 'Resources' },
+//     ],
+//   },
+// ]
+
 const links = [
   {
-    link: '/announcements',
-    label: 'Announcements',
+    link: '/about',
+    label: 'About Us',
   },
   {
-    link: '/events',
-    label: 'Events',
-  },
-  {
-    link: '',
-    label: 'Learn More',
-    subLinks: [
-      { link: '/about', label: 'Our Mission' },
-      { link: '/team', label: 'Meet the Team' },
-      { link: '/resources', label: 'Resources' },
-    ],
+    link: '/team',
+    label: 'Meet the Team',
   },
 ]
 
@@ -41,42 +52,42 @@ export function NavBar() {
   const [opened, { toggle, close }] = useDisclosure(false)
 
   const items = links.map((link) => {
-    if (link.subLinks) {
-      return (
-        <Menu
-          classNames={{ dropdown: classes.dropDownMenu }}
-          key={link.label}
-          position="bottom-start"
-          trigger="click-hover"
-          loop={false}
-          withinPortal={false}
-          trapFocus={false}
-          menuItemTabIndex={0}
-          transitionProps={{ exitDuration: 0 }}
-        >
-          <Menu.Target>
-            <UnstyledButton className={classes.link}>
-              <Center>
-                <Text className={classes.linkLabel}>{link.label}</Text>
-                <ChevronDown size={'20'} />
-              </Center>
-            </UnstyledButton>
-          </Menu.Target>
-          <Menu.Dropdown>
-            {link.subLinks?.map((subLink) => (
-              <Menu.Item
-                component="a"
-                key={subLink.label}
-                href={subLink.link}
-                className={classes.dropDownItem}
-              >
-                {subLink.label}
-              </Menu.Item>
-            ))}
-          </Menu.Dropdown>
-        </Menu>
-      )
-    }
+    // if (link.subLinks) {
+    //   return (
+    //     <Menu
+    //       classNames={{ dropdown: classes.dropDownMenu }}
+    //       key={link.label}
+    //       position="bottom-start"
+    //       trigger="click-hover"
+    //       loop={false}
+    //       withinPortal={false}
+    //       trapFocus={false}
+    //       menuItemTabIndex={0}
+    //       transitionProps={{ exitDuration: 0 }}
+    //     >
+    //       <Menu.Target>
+    //         <UnstyledButton className={classes.link}>
+    //           <Center>
+    //             <Text className={classes.linkLabel}>{link.label}</Text>
+    //             <ChevronDown size={'20'} />
+    //           </Center>
+    //         </UnstyledButton>
+    //       </Menu.Target>
+    //       <Menu.Dropdown>
+    //         {link.subLinks?.map((subLink) => (
+    //           <Menu.Item
+    //             component="a"
+    //             key={subLink.label}
+    //             href={subLink.link}
+    //             className={classes.dropDownItem}
+    //           >
+    //             {subLink.label}
+    //           </Menu.Item>
+    //         ))}
+    //       </Menu.Dropdown>
+    //     </Menu>
+    //   )
+    // }
 
     return link.link ?
         <UnstyledButton
